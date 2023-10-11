@@ -4,7 +4,7 @@ const router = express.Router();
 const users = require('./controllers/users');
 const { listCategories } = require('./controllers/categories');
 
-router.post('/usuario', users.userRegistration);
+router.get('/usuario', users.detailUser);
 router.get('/categoria', listCategories);
 
 
