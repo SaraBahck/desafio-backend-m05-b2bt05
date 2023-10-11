@@ -1,8 +1,11 @@
 const express = require('express');
+const router = express.Router();
+
 const users = require('./controllers/users');
+const { listCategories } = require('./controllers/categories');
 
-const routes = express()
+router.post('/usuario', users.userRegistration);
+router.get('/categoria', listCategories);
 
-routes.post('/usuario', users.userRegistration)
 
-module.exports = routes;
+module.exports = router;
