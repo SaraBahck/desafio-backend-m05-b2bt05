@@ -6,7 +6,7 @@ const { listCategories } = require('./controllers/categories');
 const { userLogin } = require('./controllers/userLogin');
 const authentication = require('./middlers/authentication');
 
-router.post('/usuario', users.userRegistration);
+router.get('/usuario', users.detailUser);
 router.get('/categoria', listCategories);
 router.post('/login', userLogin)
 
