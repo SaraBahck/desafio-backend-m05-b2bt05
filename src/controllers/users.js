@@ -1,5 +1,5 @@
-const knex = require('../dbConnection');
 const bcrypt = require('bcrypt');
+
 const checkEmailRegistered = require('../utils.js/checkEmailRegistered');
 const validateUserDataRegister = require('../utils.js/validateUserDataRegister');
 const insertUserIntoDatabase = require('../utils.js/insertUserIntoDatabase');

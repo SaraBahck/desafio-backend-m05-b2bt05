@@ -1,13 +1,17 @@
 const express = require('express');
-const router = express();
-
-const { userRegistration } = require('./controllers/users');
+const { userRegistration, detailUser } = require('./controllers/users');
 const { listCategories } = require('./controllers/categories');
 const { userLogin } = require('./controllers/userLogin');
 const authentication = require('./middlers/authentication');
 
-router.post('/usuario', userRegistration);
-router.get('/categoria', listCategories);
+const router = express();
 
+router.get('/categoria', listCategories)
+router.post('/usuario', userRegistration)
+router.post('/login', userLogin)
+
+router.use(authentication)
+
+router.get('/usuario', detailUser)
 
 module.exports = router;
