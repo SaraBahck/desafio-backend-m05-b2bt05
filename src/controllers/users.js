@@ -34,12 +34,12 @@ const userRegistration = async (req, res) => {
         ;
         
         if (!register[0]){
-            return res.status(400).json("O usuário não foi cadastrado." );
+            return res.status(400).json({ mensagem:"O usuário não foi cadastrado." });
         };
 
-        return res.status(200).json(register[0]);
+        return res.status(201).json(register[0]);
     } catch (error) {
-        return res.status(400).json(error.message);
+        return res.status(500).json({ mensagem: 'Erro interno do servidor' });
     }
 }
 
