@@ -7,9 +7,9 @@ const insertUserIntoDatabase = require('../utils/insertUserIntoDatabase');
 const userRegistration = async (req, res) => {
     const { nome, email, senha } = req.body;
 
-    await validateUserDataRegister(nome, email, senha)
-
     try {
+        await validateUserDataRegister(nome, email, senha)
+        
         await checkEmailRegistered(email)
 
         const encryptedPassword = await bcrypt.hash(senha, 10)
