@@ -7,14 +7,14 @@ const editUser = async (req, res) => {
     const { nome, email, senha } = req.body;
     const { id } = req.user;
 
-    await validateUserDataRegister(id, nome, email, senha)
+    await validateUserDataRegister(nome, email, senha)
 
     try {
         await checkEmailToUpdate(email)
 
         const encryptedPassword = await bcrypt.hash(senha, 10)
 
-        await updatetUserIntoDatabase (nome, email, encryptedPassword)
+        await updatetUserIntoDatabase (id, nome, email, encryptedPassword)
         
         return res.status(200).send();
 
