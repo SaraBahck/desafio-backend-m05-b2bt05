@@ -1,6 +1,6 @@
 const knex = require('../dbConnection')
 
-const updatetUserIntoDatabase = async (nome, email, encryptedPassword) => {
+const updatetUserIntoDatabase = async (id, nome, email, encryptedPassword) => {
     const register = await knex('usuarios')
         .where({ id })
         .insert({ nome, email, senha: encryptedPassword })

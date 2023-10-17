@@ -1,12 +1,12 @@
 const bcrypt = require('bcrypt');
-const knex = require('../dbConnection');
 const updatetUserIntoDatabase = require('../utils/updateUserIntoDatabase');
+const validateUserDataRegister = require('../utils/validateUserDataRegister');
 
 const editUser = async (req, res) => {
     const { nome, email, senha } = req.body;
     const { id } = req.user;
 
-    await validateUserDataRegister(nome, email, senha)
+    await validateUserDataRegister(id, nome, email, senha)
 
     try {
         await checkEmailRegistered(email)
