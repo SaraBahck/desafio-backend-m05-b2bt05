@@ -32,10 +32,10 @@ const editUser = async (req, res) => {
                 email,
                 senha: hashPass
             });
-
         return res.status(204).send();
 
     } catch (error) {
+        console.log(error.message)
         return res.status(500).json({
             mensagem: 'Erro interno do servidor'
         });
