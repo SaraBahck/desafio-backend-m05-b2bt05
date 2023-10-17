@@ -19,9 +19,7 @@ const editUser = async (req, res) => {
         return res.status(200).send();
 
     } catch (error) {
-        return res.status(500).json({
-            mensagem: 'Erro interno do servidor'
-        });
+        return res.status(error.code).json(error.message);
     }
 }
 
