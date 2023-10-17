@@ -1,37 +1,20 @@
 const bcrypt = require('bcrypt');
 const knex = require('../dbConnection');
+const updatetUserIntoDatabase = require('../utils/updateUserIntoDatabase');
 
 const editUser = async (req, res) => {
     const { nome, email, senha } = req.body;
-    const id = req.user.id
-    if (!nome || !email || !senha) {
-        return res.status(400).json(({
-            mensagem: 'Por favor, preencha todos os campos!'
-        }))
-    }
+    const { id } = req.user;
+
+    await validateUserDataRegister(nome, email, senha)
 
     try {
-        if (!nome || !email || !senha) {
-            return res.status(400).json(msg('Por favor, preencha todos os campos.'))
-        }
+        await checkEmailRegistered(email)
 
-        const emailExists = await knex('usuarios').where({ email }).first()
+        const encryptedPassword = await bcrypt.hash(senha, 10)
 
-        if (id !== emailExists.id) {
-            return res.status(400).json({
-                mensagem: 'Este email já existe!'
-            });
-        }
-
-        const hashPass = await bcrypt.hash(senha, 10);
-
-        await knex('usuarios')
-            .where({ id })
-            .update({
-                nome,
-                email,
-                senha: hashPass
-            });
+        await updatetUserIntoDatabase (nome, email, encryptedPassword)
+        
         return res.status(204).send();
 
     } catch (error) {
