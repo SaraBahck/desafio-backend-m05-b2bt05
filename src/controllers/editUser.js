@@ -1,23 +1,29 @@
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const knex = require('../dbConnection');
-
-const validateUserDataLogin = require('../utils.js/validateUserDataLogin');
-const checkEmailRegistered = require('../utils.js/checkEmailRegistered')
 
 const editUser = async (req, res) => {
     const { nome, email, senha } = req.body;
-
-    await validateUserDataLogin(nome, email, senha);
+    const id = req.user.id
+    if (!nome || !email || !senha) {
+        return res.status(400).json(({
+            mensagem: 'Por favor, preencha todos os campos!'
+        }))
+    }
 
     try {
+        if (!nome || !email || !senha) {
+            return res.status(400).json(msg('Por favor, preencha todos os campos.'))
+        }
+
+        const emailExists = await knex('usuarios').where({ email }).first()
+
+        if (id !== emailExists.id) {
+            return res.status(400).json({
+                mensagem: 'Este email já existe!'
+            });
+        }
+
         const hashPass = await bcrypt.hash(senha, 10);
-        const tokenUser = jwt.verify(token)
-
-
-        if (senha) { hashPass(senha) }
-
-        await checkEmailRegistered(email)
 
         await knex('usuarios')
             .where({ id })
@@ -30,11 +36,11 @@ const editUser = async (req, res) => {
         return res.status(204).send();
 
     } catch (error) {
+        console.log(error.message)
         return res.status(500).json({
             mensagem: 'Erro interno do servidor'
         });
     }
-
 }
 
 module.exports = {

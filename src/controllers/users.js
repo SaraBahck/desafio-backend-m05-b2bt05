@@ -19,7 +19,7 @@ const userRegistration = async (req, res) => {
         return res.status(201).json(register);
 
     } catch (error) {
-        return res.status(500).json(error.message);
+        return res.status(500).json(error);
     }
 }
 
@@ -32,12 +32,12 @@ const detailUser = async (req, res) => {
     } catch (error) {
         console.log(error.message);
         res.status(404).json({ mensagem: `o servidor não pode encontrar o recurso solicitado.` })
-    
+
     }
 }
 
 
 module.exports = {
-    userRegistration, 
+    userRegistration,
     detailUser
 }
