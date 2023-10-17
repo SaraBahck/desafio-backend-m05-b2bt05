@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const knex = require('../dbConnection');
 const updatetUserIntoDatabase = require('../utils/updateUserIntoDatabase');
+const validateUserDataRegister = require('../utils/validateUserDataRegister');
 
 const editUser = async (req, res) => {
     const { nome, email, senha } = req.body;
