@@ -31,7 +31,7 @@ const userLogin = async (req, res) => {
       token
     });
   } catch (error) {
-    return res.status(500).json(error.message);
+    return res.status(error.code).json(error.message);
   }
 }
 
