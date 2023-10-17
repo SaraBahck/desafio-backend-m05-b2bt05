@@ -5,16 +5,15 @@ const checkEmailToUpdate = require('../utils/checkEmailToUpdate');
 
 const editUser = async (req, res) => {
     const { nome, email, senha } = req.body;
-    const { id } = req.user;
-
+    
     await validateUserDataRegister(nome, email, senha)
 
     try {
-        await checkEmailToUpdate(email)
+        await checkEmailToUpdate(req, email)
 
         const encryptedPassword = await bcrypt.hash(senha, 10)
 
-        await updatetUserIntoDatabase (id, nome, email, encryptedPassword)
+        await updatetUserIntoDatabase (req, nome, email, encryptedPassword)
         
         return res.status(200).send();
 
