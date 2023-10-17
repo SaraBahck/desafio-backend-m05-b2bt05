@@ -29,7 +29,7 @@ Você pode acessar e usar nossa aplicação diretamente através do link de depl
 Para uma utilização eficiente da nossa aplicação, listaremos abaixo todos os endpoints com suas funcionalidades e  devidas rotas.
 
 Para os testes utilizamos como url_base o nosso deploy:
-<img src='./assets/url_base.png' width ='1000'>
+<img src='./assets/url_base.png' width ='500'>
 
 ### 1. Listar categoria
 
