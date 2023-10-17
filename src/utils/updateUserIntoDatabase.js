@@ -4,7 +4,6 @@ const updatetUserIntoDatabase = async (id, nome, email, encryptedPassword) => {
     const register = await knex('usuarios')
         .where({ id })
         .update({ nome, email, senha: encryptedPassword })
-        .returning('*')
     ;
     
     if (!register[0]){
