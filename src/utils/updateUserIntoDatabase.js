@@ -6,7 +6,7 @@ const updatetUserIntoDatabase = async (req, nome, email, encryptedPassword) => {
         .update({ nome, email, senha: encryptedPassword })
     ;
     
-    if (!register[0]){
+    if (!register){
         throw {
             code: 400,
             message: "O usuário não foi atualizado"
