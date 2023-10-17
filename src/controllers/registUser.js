@@ -19,7 +19,7 @@ const userRegistration = async (req, res) => {
         return res.status(201).json(register);
 
     } catch (error) {
-        return res.status(500).json(error.message);
+        return res.status(error.code).json(error.message);
     }
 }
 
