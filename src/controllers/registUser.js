@@ -1,8 +1,8 @@
 const bcrypt = require('bcrypt');
 
-const checkEmailRegistered = require('../utils.js/checkEmailRegistered');
-const validateUserDataRegister = require('../utils.js/validateUserDataRegister');
-const insertUserIntoDatabase = require('../utils.js/insertUserIntoDatabase');
+const checkEmailRegistered = require('../utils/checkEmailRegistered');
+const validateUserDataRegister = require('../utils/validateUserDataRegister');
+const insertUserIntoDatabase = require('../utils/insertUserIntoDatabase');
 
 const userRegistration = async (req, res) => {
     const { nome, email, senha } = req.body;
@@ -23,14 +23,6 @@ const userRegistration = async (req, res) => {
     }
 }
 
-const detailUser = async (req, res) => {
-    
-    return res.json(req.user);
-    
-}
-
-
 module.exports = {
-    userRegistration, 
-    detailUser
+    userRegistration
 }
