@@ -116,6 +116,8 @@ Endpoint: `PUT /usuario`
 
 #### Observação: Todos os campos são obrigatórios.
 
+<img src='./assets/edit_user.png' width ='1000'>
+
 ---
 
 ## 📌Tecnologias 
