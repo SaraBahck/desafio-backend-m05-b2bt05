@@ -5,6 +5,7 @@ const { userLogin } = require('./controllers/userLogin');
 const authentication = require('./middlers/authentication');
 const { detailUser } = require('./controllers/detailUser');
 const { editUser } = require('./controllers/editUser');
+const { listProducts } = require('./controllers/listProducts');
 
 const router = express();
 
@@ -16,5 +17,6 @@ router.use(authentication)
 
 router.get('/usuario', detailUser)
 router.put('/usuario', editUser)
+router.get('/produto', listProducts)
 
 module.exports = router;
