@@ -6,6 +6,8 @@ const authentication = require('./middlers/authentication');
 const { detailUser } = require('./controllers/detailUser');
 const { editUser } = require('./controllers/editUser');
 
+const { listClient } = require('./controllers/listClient');
+
 const router = express();
 
 router.get('/categoria', listCategories)
@@ -16,5 +18,7 @@ router.use(authentication)
 
 router.get('/usuario', detailUser)
 router.put('/usuario', editUser)
+
+router.get('/cliente', listClient)
 
 module.exports = router;
