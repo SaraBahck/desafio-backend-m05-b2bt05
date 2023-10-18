@@ -7,6 +7,7 @@ const { detailUser } = require('./controllers/detailUser');
 const { editUser } = require('./controllers/editUser');
 const { productRegistration } = require('./controllers/registProduct');
 const { editProduct } = require('./controllers/editProduct');
+const { listProducts } = require('./controllers/listProducts');
 
 const router = express();
 
@@ -18,8 +19,9 @@ router.use(authentication)
 
 router.get('/usuario', detailUser)
 router.put('/usuario', editUser)
-
 router.post('/produto', productRegistration)
 router.put('/produto/:id', editProduct)
+router.get('/produto', listProducts)
+
 
 module.exports = router;
