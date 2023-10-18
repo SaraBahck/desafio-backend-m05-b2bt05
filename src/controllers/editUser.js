@@ -1,44 +1,24 @@
 const bcrypt = require('bcrypt');
-const knex = require('../dbConnection');
+const updatetUserIntoDatabase = require('../utils/updateUserIntoDatabase');
+const validateUserDataRegister = require('../utils/validateUserDataRegister');
+const checkEmailToUpdate = require('../utils/checkEmailToUpdate');
 
 const editUser = async (req, res) => {
     const { nome, email, senha } = req.body;
-    const id = req.user.id
-    if (!nome || !email || !senha) {
-        return res.status(400).json(({
-            mensagem: 'Por favor, preencha todos os campos!'
-        }))
-    }
+
+    await validateUserDataRegister(nome, email, senha)
 
     try {
-        if (!nome || !email || !senha) {
-            return res.status(400).json(msg('Por favor, preencha todos os campos.'))
-        }
+        await checkEmailToUpdate(req, email)
 
-        const emailExists = await knex('usuarios').where({ email }).first()
+        const encryptedPassword = await bcrypt.hash(senha, 10)
 
-        if (id !== emailExists.id) {
-            return res.status(400).json({
-                mensagem: 'Este email já existe!'
-            });
-        }
+        await updatetUserIntoDatabase(req, nome, email, encryptedPassword)
 
-        const hashPass = await bcrypt.hash(senha, 10);
-
-        await knex('usuarios')
-            .where({ id })
-            .update({
-                nome,
-                email,
-                senha: hashPass
-            });
-
-        return res.status(204).send();
+        return res.status(200).send();
 
     } catch (error) {
-        return res.status(500).json({
-            mensagem: 'Erro interno do servidor'
-        });
+        return res.status(error.code).json(error.message);
     }
 }
 

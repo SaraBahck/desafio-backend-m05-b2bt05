@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 const knex = require('knex')({
   client: 'pg',
   connection: {
@@ -11,5 +9,6 @@ const knex = require('knex')({
     ssl: { rejectUnauthorized: false }
   }
 });
+
 
 module.exports = knex

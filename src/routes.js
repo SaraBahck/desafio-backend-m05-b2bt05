@@ -1,23 +1,26 @@
 const express = require('express');
-const { userRegistration, detailUser } = require('./controllers/users');
 const { listCategories } = require('./controllers/categories');
+const { userRegistration } = require('./controllers/registUser');
 const { userLogin } = require('./controllers/userLogin');
-const { editUser } = require('./controllers/editUser');
 const authentication = require('./middlers/authentication');
+const { detailUser } = require('./controllers/detailUser');
+const { editUser } = require('./controllers/editUser');
+const { listProducts } = require('./controllers/listProducts');
 
+const { listClient } = require('./controllers/listClient');
 
 const router = express();
 
-router.get('/', (req, res) => {
-    res.send("Oi")
-})
-router.get('/categoria', listCategories);
-router.post('/usuario', userRegistration);
-router.post('/login', userLogin);
+router.get('/categoria', listCategories)
+router.post('/usuario', userRegistration)
+router.post('/login', userLogin)
 
-router.use(authentication);
+router.use(authentication)
 
-router.put('/usuario', editUser);
-router.get('/usuario', detailUser);
+router.get('/usuario', detailUser)
+router.put('/usuario', editUser)
+router.get('/produto', listProducts)
+
+router.get('/cliente', listClient)
 
 module.exports = router;
