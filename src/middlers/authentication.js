@@ -44,7 +44,6 @@ const authentication = async (req, res, next) => {
     next()
 
   } catch (error) {
-    console.log(error.message)
     return res.status(error.code).json({ message: error.message })
   }
 }

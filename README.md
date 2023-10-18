@@ -30,11 +30,16 @@ Você pode acessar e usar nossa aplicação diretamente através do link de depl
 
 Para uma utilização eficiente da nossa aplicação, listaremos abaixo todos os endpoints com suas funcionalidades e devidas rotas.
 
+Para os testes utilizamos como url_base o nosso deploy:
+<img src='./assets/url_base.png' width ='500'>
+
 ### 1. Listar categoria
 
 Endpoint: `GET /categoria`
 
 > Este endpoint permite que os usuários listem as categorias cadastradas.
+
+<img src='./assets/list_categories.png' width ='1000'>
 
 ---
 
@@ -56,6 +61,8 @@ Endpoint: `POST /usuario`
 
 #### Observação: todos os campos são obrigatórios.
 
+<img src='./assets/regist_user.png' width ='1000'>
+
 ---
 
 ### 3. Efetuar Login do Usuário
@@ -73,6 +80,8 @@ Endpoint: `POST /login`
 }
 ```
 
+<img src='./assets/user_login.png' width ='1000'>
+
 #### Observação: Após realizar o login com sucesso, um token será retornado. Esse token deve ser utilizado para autenticação nos próximos endpoints, pois eles são protegidos.
 
 ---
@@ -87,9 +96,11 @@ Endpoint: `GET /usuario`
 
 - Authorization: Bearer SEU_TOKEN
 
+<img src='./assets/detail_user.png' width ='1000'>
+
 ---
 
-### 5.Editar Perfil do Usuário Logado
+### 5. Editar Perfil do Usuário Logado
 
 Endpoint: `PUT /usuario`
 
@@ -97,7 +108,7 @@ Endpoint: `PUT /usuario`
 
 #### Header:
 
-- Authorization: Bearer SEU_TOKEN
+Authorization: Bearer SEU_TOKEN
 
 #### Corpo da requisição:
 
@@ -110,6 +121,8 @@ Endpoint: `PUT /usuario`
 ```
 
 #### Observação: Todos os campos são obrigatórios.
+
+<img src='./assets/edit_user.png' width ='1000'>
 
 ---
 

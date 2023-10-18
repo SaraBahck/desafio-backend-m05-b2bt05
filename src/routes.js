@@ -1,9 +1,10 @@
 const express = require('express');
-const { userRegistration, detailUser } = require('./controllers/users');
 const { listCategories } = require('./controllers/categories');
+const { userRegistration } = require('./controllers/registUser');
 const { userLogin } = require('./controllers/userLogin');
-const { editUser } = require('./controllers/editUser');
 const authentication = require('./middlers/authentication');
+const { detailUser } = require('./controllers/detailUser');
+const { editUser } = require('./controllers/editUser');
 
 const router = express();
 
@@ -13,7 +14,7 @@ router.post('/login', userLogin)
 
 router.use(authentication)
 
-router.put('/usuario', editUser)
 router.get('/usuario', detailUser)
+router.put('/usuario', editUser)
 
 module.exports = router;
