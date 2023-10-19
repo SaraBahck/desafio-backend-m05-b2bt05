@@ -27,8 +27,9 @@ const authentication = async (req, res, next) => {
         }
       }
     }
-
+    
     const loggedUser = await knex('usuarios').where({ id: idToken })
+    
 
     if (loggedUser.length === 0) {
         throw {
