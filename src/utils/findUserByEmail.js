@@ -5,7 +5,7 @@ const findUserByEmail = async (email) => {
 
   if (login.length === 0) {
     throw {
-      code: 400,
+      code: 404,
       message: "O usuario não foi encontrado"
     }
 
