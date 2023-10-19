@@ -13,6 +13,7 @@ const { listProducts } = require('./controllers/listProducts');
 const { deleteProduct } = require('./controllers/deleteProduct');
 
 const { listClient } = require('./controllers/listClient');
+const { detailClient } = require('./controllers/detailClient');
 
 const router = express();
 
@@ -32,5 +33,6 @@ router.get('/produto', listProducts)
 router.delete('/produto/:id', deleteProduct)
 
 router.get('/cliente', listClient)
+router.get('/cliente/:id', detailClient)
 
 module.exports = router;
