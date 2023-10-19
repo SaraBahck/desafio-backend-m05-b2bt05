@@ -22,7 +22,6 @@ INSERT INTO categorias (descricao) VALUES
   ('Bebê'),
   ('Games');
 
-
 CREATE TABLE produtos (
   id serial primary key,
   descricao varchar(255) not null,
@@ -30,6 +29,7 @@ CREATE TABLE produtos (
   valor int,
   categoria_id int REFERENCES categorias(id)
 );
+
 
 CREATE TABLE clientes (
   id serial primary key,
