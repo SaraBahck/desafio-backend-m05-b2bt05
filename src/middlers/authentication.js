@@ -27,8 +27,9 @@ const authentication = async (req, res, next) => {
         }
       }
     }
-
+    
     const loggedUser = await knex('usuarios').where({ id: idToken })
+    
 
     if (loggedUser.length === 0) {
         throw {
@@ -44,7 +45,6 @@ const authentication = async (req, res, next) => {
     next()
 
   } catch (error) {
-    console.log(error.message)
     return res.status(error.code).json({ message: error.message })
   }
 }
