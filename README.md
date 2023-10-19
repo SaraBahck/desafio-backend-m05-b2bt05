@@ -108,7 +108,7 @@ Endpoint: `PUT /usuario`
 
 #### Header:
 
-- Authorization: Bearer SEU_TOKEN
+Authorization: Bearer SEU_TOKEN
 
 #### Corpo da requisição:
 
