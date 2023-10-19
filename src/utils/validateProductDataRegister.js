@@ -3,7 +3,7 @@ const knex = require('../dbConnection')
 const validateproductDataRegister = async (descricao, quantidade_estoque, valor, categoria_id) => {
     if (!descricao || !quantidade_estoque || !valor || !categoria_id) {
       throw {
-        code: 404,
+        code: 400,
         message: 'Todos os campos devem ser informados'
       }
     }

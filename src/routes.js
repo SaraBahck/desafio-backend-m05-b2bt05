@@ -19,9 +19,9 @@ router.use(authentication)
 
 router.get('/usuario', detailUser)
 router.put('/usuario', editUser)
+router.get('/produto', listProducts)
 
 router.post('/produto', productRegistration)
 router.put('/produto/:id', editProduct)
-router.get('/produto', listProducts)
 
 module.exports = router;

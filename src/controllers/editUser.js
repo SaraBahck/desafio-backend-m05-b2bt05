@@ -15,7 +15,7 @@ const editUser = async (req, res) => {
 
         await updatetUserIntoDatabase (req, nome, email, encryptedPassword)
         
-        return res.status(200).send();
+        return res.status(204).send();
 
     } catch (error) {
         return res.status(error.code).json(error.message);

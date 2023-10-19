@@ -9,7 +9,7 @@ const productRegistration = async (req, res) => {
 
         const product = await insertProductIntoDatabase (descricao, quantidade_estoque, valor, categoria_id)
         
-        return res.status(200).json(product);
+        return res.status(201).json(product);
     } catch (error) {
         console.log(error)
         return res.status(error.code).json(error.message);
