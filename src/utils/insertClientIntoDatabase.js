@@ -1,8 +1,8 @@
 const knex = require('../dbConnection')
 
-const insertClientIntoDatabase = async (nome, email, cpf) => {
+const insertClientIntoDatabase = async (nome, email, cpf, cep, rua, numero, bairro, cidade, estado) => {
     const client = await knex('clientes')
-        .insert({ nome, email, cpf })
+        .insert({ nome, email, cpf, cep, rua, numero, bairro, cidade, estado })
         .returning('*')
         ;
 
