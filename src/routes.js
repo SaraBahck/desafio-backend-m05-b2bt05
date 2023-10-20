@@ -5,11 +5,12 @@ const { userLogin } = require('./controllers/userLogin');
 const authentication = require('./middlers/authentication');
 const { detailUser } = require('./controllers/detailUser');
 const { editUser } = require('./controllers/editUser');
-const { detailProduct} = require('./controllers/detailProduct');
+const { detailProduct } = require('./controllers/detailProduct');
 const { productRegistration } = require('./controllers/registProduct');
 const { editProduct } = require('./controllers/editProduct');
 const { listProducts } = require('./controllers/listProducts');
-const {deleteProduct } = require('./controllers/deleteProduct');
+const { deleteProduct } = require('./controllers/deleteProduct');
+const { registClient } = require('./controllers/registClient');
 
 const router = express();
 
@@ -26,6 +27,7 @@ router.post('/produto', productRegistration)
 router.put('/produto/:id', editProduct)
 router.get('/produto', listProducts)
 router.delete('/produto/:id', deleteProduct)
+router.post('/cliente', registClient);
 
 
 module.exports = router;
