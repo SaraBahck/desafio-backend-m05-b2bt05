@@ -12,7 +12,10 @@ const deleteProduct = async (req, res) => {
         })
         .del()
         if(!deleteProduct){
-            return res.status(400).json('O produto não foi excluído')
+            throw {
+                code: 400,
+                message: 'O produto não foi excluído'
+            }
         }
         return res.status(200).json('Produto excluido com sucesso')
     }catch(error) {
