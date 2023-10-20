@@ -12,6 +12,8 @@ const { listProducts } = require('./controllers/listProducts');
 const { deleteProduct } = require('./controllers/deleteProduct');
 const { registClient } = require('./controllers/registClient');
 const { editClient } = require('./controllers/editClient');
+const { listClient } = require('./controllers/listClient');
+const { detailClient } = require('./controllers/detailClient');
 
 const router = express();
 
@@ -23,6 +25,7 @@ router.use(authentication)
 
 router.get('/usuario', detailUser)
 router.put('/usuario', editUser)
+
 router.get('/produto/:id', detailProduct)
 router.post('/produto', productRegistration)
 router.put('/produto/:id', editProduct)
@@ -31,5 +34,7 @@ router.delete('/produto/:id', deleteProduct)
 router.post('/cliente', registClient)
 router.put('/cliente/:id', editClient)
 
+router.get('/cliente', listClient)
+router.get('/cliente/:id', detailClient)
 
 module.exports = router;

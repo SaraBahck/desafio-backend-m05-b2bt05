@@ -1,4 +1,4 @@
-const checkProductExists = require("../utils/checkProductExists");
+const checkProductExistsById = require("../utils/checkProductExistsById");
 const updateProductIntoDatabase = require("../utils/updateProductIntoDatabase");
 const validateproductDataRegister = require("../utils/validateProductDataRegister");
 
@@ -9,7 +9,7 @@ const editProduct = async (req, res) => {
     try {
         await validateproductDataRegister (descricao, quantidade_estoque, valor, categoria_id)
 
-        await checkProductExists(id)
+        await checkProductExistsById(id, descricao)
 
         await updateProductIntoDatabase(id, descricao, quantidade_estoque, valor, categoria_id)
         
