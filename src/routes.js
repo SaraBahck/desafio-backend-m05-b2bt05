@@ -11,6 +11,7 @@ const { editProduct } = require('./controllers/editProduct');
 const { listProducts } = require('./controllers/listProducts');
 const { deleteProduct } = require('./controllers/deleteProduct');
 const { registClient } = require('./controllers/registClient');
+const { editClient } = require('./controllers/editClient');
 
 const router = express();
 
@@ -27,7 +28,8 @@ router.post('/produto', productRegistration)
 router.put('/produto/:id', editProduct)
 router.get('/produto', listProducts)
 router.delete('/produto/:id', deleteProduct)
-router.post('/cliente', registClient);
+router.post('/cliente', registClient)
+router.put('/cliente/:id', editClient)
 
 
 module.exports = router;
