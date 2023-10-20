@@ -10,7 +10,7 @@ const detailClient = async (req, res) => {
         res.status(200).json(clientFound)
 
     } catch (error) {
-        return res.status(500).json({ message: `Erro interno no servidor` })
+        return res.status(error.code).json(error.message)
     }
 
 }
