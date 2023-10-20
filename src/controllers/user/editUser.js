@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const updatetUserIntoDatabase = require('../../utils/functions/updateUserIntoDatabase');
+const updatetUserIntoDatabase = require('../../utils/insertFunctions/updateUserIntoDatabase');
 const validateUserDataRegister = require('../../utils/validations/validateUserDataRegister');
 const checkEmailToUpdate = require('../../utils/checkFunctions/checkUser/checkUserEmailToUpdate');
 
