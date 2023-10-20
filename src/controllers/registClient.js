@@ -15,8 +15,7 @@ const registClient = async (req, res) => {
         return res.status(201).json({ menagem: 'Cliente cadastrado.' });
 
     } catch (error) {
-        console.log(error)
-        return res.status(error.code || 500).json(error.message || 'Erro interno do servidor');
+        return res.status(error.code).json(error.message);
     }
 }
 
