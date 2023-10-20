@@ -1,7 +1,7 @@
 const validateClientDataRegist = require('../../utils/validations/validateClientDataRegist');
 const checkEmailClientRegist = require('../../utils/checkFunctions/checkClient/checkEmailClientRegist');
 const checkCpfRegistered = require('../../utils/checkFunctions/checkClient/checkClientCpfRegistered');
-const insertClientIntoDatabase = require('../../utils/functions/insertClientIntoDatabase');
+const insertClientIntoDatabase = require('../../utils/insertFunctions/insertClientIntoDatabase');
 
 const registClient = async (req, res) => {
     const { nome, email, cpf, cep, rua, numero, bairro, cidade, estado } = req.body;

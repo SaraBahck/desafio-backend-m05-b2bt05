@@ -1,5 +1,5 @@
 const checkProductExistsIntoDb = require("../../utils/checkFunctions/checkProducts/checkProductExistsIntoDb");
-const insertProductIntoDatabase = require("../../utils/functions/insertProductIntoDatabase");
+const insertProductIntoDatabase = require("../../utils/insertFunctions/insertProductIntoDatabase");
 const validateproductDataRegister = require("../../utils/validations/validateProductDataRegister");
 
 const productRegistration = async (req, res) => {
