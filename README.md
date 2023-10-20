@@ -2,13 +2,14 @@
 
 <img alt="Status Em Desenvolvimento" src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-brightgreen">
 
---- 
+---
 
 ## 📌Sobre o projeto
 
 Projeto piloto de desenvolvimento de uma API para um PDV (Frente de Caixa), realizado como projeto final do curso de Desenvolvimento de Software com Foco em Back-end da Cubos Academy.
 
 ### Acesso ao sistema:
+
 Você pode acessar e usar nossa aplicação diretamente através do link de deploy:
 
 > [PDV - Acesse Aqui](https://witty-worm-tank-top.cyclic.app/)
@@ -26,7 +27,8 @@ Você pode acessar e usar nossa aplicação diretamente através do link de depl
 ---
 
 ## 📌Utilização
-Para uma utilização eficiente da nossa aplicação, listaremos abaixo todos os endpoints com suas funcionalidades e  devidas rotas.
+
+Para uma utilização eficiente da nossa aplicação, listaremos abaixo todos os endpoints com suas funcionalidades e devidas rotas.
 
 Para os testes utilizamos como url_base o nosso deploy:
 <img src='./assets/url_base.png' width ='500'>
@@ -43,18 +45,20 @@ Endpoint: `GET /categoria`
 
 ### 2. Cadastrar Usuário
 
-Endpoint:  `POST /usuario`
+Endpoint: `POST /usuario`
 
 > Este endpoint permite que os usuários registrem um novo usuário no sistema.
 
 #### Corpo da requisição:
+
 ```JSON
 {
   "nome": "Nome do Usuário",
   "email": "email@exemplo.com",
   "senha": "senha123"
 }
-````
+```
+
 #### Observação: todos os campos são obrigatórios.
 
 <img src='./assets/regist_user.png' width ='1000'>
@@ -68,6 +72,7 @@ Endpoint: `POST /login`
 > Permite que um usuário cadastrado realize o login no sistema.
 
 #### Corpo da requisição:
+
 ```JSON
 {
   "email": "email@exemplo.com",
@@ -79,7 +84,7 @@ Endpoint: `POST /login`
 
 #### Observação: Após realizar o login com sucesso, um token será retornado. Esse token deve ser utilizado para autenticação nos próximos endpoints, pois eles são protegidos.
 
---- 
+---
 
 ### 4. Detalhar Perfil do Usuário Logado
 
@@ -103,9 +108,10 @@ Endpoint: `PUT /usuario`
 
 #### Header:
 
-- Authorization: Bearer SEU_TOKEN
+Authorization: Bearer SEU_TOKEN
 
 #### Corpo da requisição:
+
 ```JSON
 {
   "nome": "Novo Nome",
@@ -120,28 +126,29 @@ Endpoint: `PUT /usuario`
 
 ---
 
-## 📌Tecnologias 
+## 📌Tecnologias
 
 #### As seguintes ferramentas foram usadas na construção do projeto:
 
-#### **Server**  ([NodeJS](https://nodejs.org/en/))
+#### **Server** ([NodeJS](https://nodejs.org/en/))
 
--   **[Express](https://expressjs.com/)**
--   **[CORS](https://expressjs.com/en/resources/middleware/cors.html)**
--   **[bcrypt](https://www.npmjs.com/package/bcrypt)**
--   **[jsonwebtoken](https://jwt.io/)**
--   **[KnexJS](http://knexjs.org/)**
--   **[dotENV](https://github.com/motdotla/dotenv)**
+- **[Express](https://expressjs.com/)**
+- **[CORS](https://expressjs.com/en/resources/middleware/cors.html)**
+- **[bcrypt](https://www.npmjs.com/package/bcrypt)**
+- **[jsonwebtoken](https://jwt.io/)**
+- **[KnexJS](http://knexjs.org/)**
+- **[dotENV](https://github.com/motdotla/dotenv)**
 
->  Veja o arquivo  [package.json](https://github.com/SaraBahck/desafio-backend-m05-b2bt05-equipe07/blob/main/package.json)
+> Veja o arquivo [package.json](https://github.com/SaraBahck/desafio-backend-m05-b2bt05-equipe07/blob/main/package.json)
 
 #### **Utilitários**
 
--   Deploy:  **[API](https://witty-worm-tank-top.cyclic.app/)**
--   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)**
--   Teste de API:  **[Insomnia](https://insomnia.rest/)**
+- Deploy: **[API](https://witty-worm-tank-top.cyclic.app/)**
+- Editor: **[Visual Studio Code](https://code.visualstudio.com/)**
+- Teste de API: **[Insomnia](https://insomnia.rest/)**
 
 ---
+
 ## Autoras
 
 <table>
