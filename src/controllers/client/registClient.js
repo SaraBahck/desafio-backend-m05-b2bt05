@@ -10,9 +10,9 @@ const registClient = async (req, res) => {
         await validateClientDataRegist(nome, email, cpf);
         await checkEmailClientRegist(email);
         await checkCpfRegistered(cpf);
-        await insertClientIntoDatabase(nome, email, cpf, cep, rua, numero, bairro, cidade, estado);
+        const client = await insertClientIntoDatabase(nome, email, cpf, cep, rua, numero, bairro, cidade, estado);
 
-        return res.status(201).json({ menagem: 'Cliente cadastrado.' });
+        return res.status(201).json(client);
 
     } catch (error) {
         return res.status(error.code).json(error.message);

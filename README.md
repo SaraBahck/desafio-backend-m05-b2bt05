@@ -33,17 +33,18 @@ Para uma utilização eficiente da nossa aplicação, listaremos abaixo todos os
 Para os testes utilizamos como url_base o nosso deploy:
 <img src='./assets/url_base.png' width ='500'>
 
-### 1. Listar categoria
+### 1. Listar categorias
 
 Endpoint: `GET /categoria`
 
 > Este endpoint permite que os usuários listem as categorias cadastradas.
 
-<img src='./assets/list_categories.png' width ='1000'>
+<img src='./assets/categories/list_categories.png' width ='1000'>
 
 ---
 
-### 2. Cadastrar Usuário
+## ✅Endpoints de Usuários
+### 1. Cadastrar Usuário
 
 Endpoint: `POST /usuario`
 
@@ -61,11 +62,11 @@ Endpoint: `POST /usuario`
 
 #### Observação: todos os campos são obrigatórios.
 
-<img src='./assets/regist_user.png' width ='1000'>
+<img src='./assets/user/regist_user.png' width ='1000'>
 
 ---
 
-### 3. Efetuar Login do Usuário
+### 2. Efetuar Login do Usuário
 
 Endpoint: `POST /login`
 
@@ -80,13 +81,13 @@ Endpoint: `POST /login`
 }
 ```
 
-<img src='./assets/user_login.png' width ='1000'>
+<img src='./assets/user/user_login.png' width ='1000'>
 
 #### Observação: Após realizar o login com sucesso, um token será retornado. Esse token deve ser utilizado para autenticação nos próximos endpoints, pois eles são protegidos.
 
 ---
 
-### 4. Detalhar Perfil do Usuário Logado
+### 3. Detalhar Perfil do Usuário Logado
 
 Endpoint: `GET /usuario`
 
@@ -96,11 +97,11 @@ Endpoint: `GET /usuario`
 
 - Authorization: Bearer SEU_TOKEN
 
-<img src='./assets/detail_user.png' width ='1000'>
+<img src='./assets/user/detail_user.png' width ='1000'>
 
 ---
 
-### 5. Editar Perfil do Usuário Logado
+### 4. Editar Perfil do Usuário Logado
 
 Endpoint: `PUT /usuario`
 
@@ -122,7 +123,222 @@ Authorization: Bearer SEU_TOKEN
 
 #### Observação: Todos os campos são obrigatórios.
 
-<img src='./assets/edit_user.png' width ='1000'>
+<img src='./assets/user/edit_user.png' width ='1000'>
+
+---
+
+## ✅Endpoints de Produtos
+### 1. Cadastrar Produto
+
+Endpoint: `POST /produto`
+
+> Essa é a rota que permite o usuário logado cadastrar um novo produto no sistema.
+
+#### Header:
+
+Authorization: Bearer SEU_TOKEN
+
+#### Corpo da requisição:
+
+```JSON
+{
+  "descricao": "Nome do Produto",
+  "quantidade_estoque": 100,
+  "valor": 5000,
+  "categoria_id": 1
+}
+```
+
+#### Observação: todos os campos são obrigatórios.
+
+<img src='./assets/product/regist_product.png' width ='1000'>
+
+---
+
+### 2. Editar Dados do Produto
+
+Endpoint: `PUT /produto/:id`
+
+> Essa é a rota que permite o usuário logado a atualizar as informações de um produto cadastrado.
+
+#### Header:
+
+Authorization: Bearer SEU_TOKEN
+
+#### Corpo da requisição:
+
+```JSON
+{
+  "descricao": "Nome do Produto",
+	"quantidade_estoque": 150,
+	"valor": 5500,
+	"categoria_id": 8
+}
+```
+
+#### Observação: todos os campos são obrigatórios.
+
+<img src='./assets/product/edit_product.png' width ='1000'>
+
+---
+
+### 3. Listar Produtos
+
+Endpoint: `GET /produto`
+
+> Essa é a rota que será chamada quando o usuário logado quiser listar todos os produtos cadastrados.
+
+#### Header:
+
+Authorization: Bearer SEU_TOKEN
+
+#### Requisição:
+
+- Caso seja enviado o parâmetro do tipo query **categoria_id**, filtrar os produtos de acordo com a categoria, caso o id de categoria informada exista.
+
+<img src='./assets/product/list_product_with_query.png' width ='1000'>
+
+- Caso não seja informado o parâmetro do tipo query **categoria_id** todos os produtos cadastrados deverão ser retornados.
+
+<img src='./assets/product/list_product_without_query.png' width ='1000'>
+
+---
+
+### 4. Detalhar Produto
+
+Endpoint: `GET /produto/:id`
+
+> Essa é a rota que permite o usuário logado obter um de seus produtos cadastrados.
+
+#### Header:
+
+Authorization: Bearer SEU_TOKEN
+
+<img src='./assets/product/detail_product.png' width ='1000'>
+---
+
+### 5. Excluir Produto por ID
+
+Endpoint: `DELETE /produto/:id`
+
+> Essa é a rota que será chamada quando o usuário logado quiser excluir um de seus produtos cadastrados.
+
+#### Header:
+
+Authorization: Bearer SEU_TOKEN
+
+<img src='./assets/product/delete_product.png' width ='1000'>
+---
+
+## ✅Endpoints de Clientes
+### 1. Cadastrar Cliente
+
+Endpoint: `POST /cliente`
+
+> Essa é a rota que permite usuário logado cadastrar um novo cliente no sistema.
+
+#### Header:
+
+Authorization: Bearer SEU_TOKEN
+
+#### Corpo da requisição:
+
+```JSON
+{
+  "nome": "Nome do Cliente",
+  "email": "cliente@email.com",
+  "cpf": 99999999999,
+  "cep": 99999999,
+  "rua": "Rua teste",
+  "numero": 99,
+  "bairro": "Teste",
+  "cidade": "Teste",
+  "estado": "Teste"
+}
+```
+OU
+
+```JSON
+{
+  "nome": "Nome do Cliente",
+  "email": "cliente@email.com",
+  "cpf": 99999999999
+}
+```
+
+#### Observação: Os campos nome, email e cpf são obrigatórios.
+
+//COLOCAR IMAGEM APÓS ALTERAÇÃO
+<img src='./assets/client/' width ='1000'>
+
+---
+
+### 2. Editar dados do Cliente
+
+Endpoint: `PUT /cliente/:id`
+
+> Essa é a rota que permite o usuário realizar atualização de um cliente cadastrado.
+
+#### Header:
+
+Authorization: Bearer SEU_TOKEN
+
+#### Corpo da requisição:
+
+```JSON
+{
+  "nome": "Nome do Cliente",
+  "email": "cliente2@email.com",
+  "cpf": 99999999990,
+  "cep": 99999999,
+  "rua": "Rua teste",
+  "numero": 99,
+  "bairro": "Teste",
+  "cidade": "Teste",
+  "estado": "Teste"
+}
+```
+OU
+
+```JSON
+{
+  "nome": "Nome do Cliente",
+  "email": "cliente2@email.com",
+  "cpf": 99999999990
+}
+```
+
+#### Observação: Os campos nome, email e cpf são obrigatórios.
+
+<img src='./assets/client/edit_client.png' width ='1000'>
+
+---
+
+### 3. Listar Clientes
+
+Endpoint: `GET /cliente`
+
+> Essa é a rota que será chamada quando o usuário logado quiser listar todos os clientes cadastrados.
+
+#### Header:
+
+Authorization: Bearer SEU_TOKEN
+
+<img src='./assets/client/list_client.png' width ='1000'>
+
+---
+
+### 4. Detalhar Cliente
+
+Endpoint: `GET /cliente/:id`
+
+> Essa é a rota que será chamada quando o usuário logado quiser obter um de seus clientes cadastrados.
+
+#### Header:
+
+Authorization: Bearer SEU_TOKEN
+
+<img src='./assets/client/detail_client.png' width ='1000'>
 
 ---
 
