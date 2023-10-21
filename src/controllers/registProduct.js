@@ -14,7 +14,6 @@ const productRegistration = async (req, res) => {
         
         return res.status(201).json(product);
     } catch (error) {
-        console.log(error)
         return res.status(error.code).json(error.message);
     }
 }
