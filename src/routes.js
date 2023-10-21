@@ -26,14 +26,14 @@ router.use(authentication)
 router.get('/usuario', detailUser)
 router.put('/usuario', editUser)
 
-router.get('/produto/:id', detailProduct)
 router.post('/produto', productRegistration)
 router.put('/produto/:id', editProduct)
 router.get('/produto', listProducts)
+router.get('/produto/:id', detailProduct)
 router.delete('/produto/:id', deleteProduct)
+
 router.post('/cliente', registClient)
 router.put('/cliente/:id', editClient)
-
 router.get('/cliente', listClient)
 router.get('/cliente/:id', detailClient)
 
