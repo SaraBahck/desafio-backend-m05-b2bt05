@@ -12,7 +12,7 @@ const registClient = async (req, res) => {
         await checkCpfRegistered(cpf);
         await insertClientIntoDatabase(nome, email, cpf, cep, rua, numero, bairro, cidade, estado);
 
-        return res.status(201).json({ menagem: 'Cliente cadastrado.' });
+        return res.status(201).json({ mensagem: 'Cliente cadastrado.' });
 
     } catch (error) {
         return res.status(error.code).json(error.message);
