@@ -35,7 +35,7 @@ CREATE TABLE clientes (
   id serial primary key,
   nome varchar(255) not null,
   email varchar(255) not null unique,
-  cpf int not null unique,
+  cpf char(11) not null unique,
   cep int,
   rua varchar(255),
   numero int,
