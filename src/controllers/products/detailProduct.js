@@ -1,4 +1,4 @@
-const { findProduct } = require("../utils/findProductByID")
+const { findProduct } = require("../../utils/checkFunctions/checkProducts/findProductByID")
 
 const detailProduct = async (req, res) => {
     const {id} = req.params

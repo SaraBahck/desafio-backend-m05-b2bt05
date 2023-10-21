@@ -1,8 +1,8 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const findUserByEmail = require('../utils/findUserByEmail');
-const validateUserDataLogin = require('../utils/validateUserDataLogin');
+const findUserByEmail = require('../../utils/checkFunctions/checkUser/findUserByEmail');
+const validateUserDataLogin = require('../../utils/validations/validateUserDataLogin');
 
 
 const userLogin = async (req, res) => {

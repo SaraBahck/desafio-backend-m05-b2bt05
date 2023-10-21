@@ -1,4 +1,4 @@
-const knex = require('../dbConnection')
+const knex = require('../../../dbConnection')
 
 const checkProductExistsIntoDb= async (descricao) => {
   const productExists = await knex('produtos').where({ descricao }).first().returning('*')

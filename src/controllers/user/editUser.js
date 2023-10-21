@@ -1,11 +1,11 @@
 const bcrypt = require('bcrypt');
-const updatetUserIntoDatabase = require('../utils/updateUserIntoDatabase');
-const validateUserDataRegister = require('../utils/validateUserDataRegister');
-const checkEmailToUpdate = require('../utils/checkEmailToUpdate');
+const updatetUserIntoDatabase = require('../../utils/insertFunctions/updateUserIntoDatabase');
+const validateUserDataRegister = require('../../utils/validations/validateUserDataRegister');
+const checkEmailToUpdate = require('../../utils/checkFunctions/checkUser/checkUserEmailToUpdate');
 
 const editUser = async (req, res) => {
     const { nome, email, senha } = req.body;
-    
+
     try {
         await validateUserDataRegister(nome, email, senha)
 
@@ -13,8 +13,8 @@ const editUser = async (req, res) => {
 
         const encryptedPassword = await bcrypt.hash(senha, 10)
 
-        await updatetUserIntoDatabase (req, nome, email, encryptedPassword)
-        
+        await updatetUserIntoDatabase(req, nome, email, encryptedPassword)
+
         return res.status(204).send();
 
     } catch (error) {

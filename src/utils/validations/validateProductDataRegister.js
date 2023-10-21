@@ -1,4 +1,4 @@
-const knex = require('../dbConnection')
+const knex = require('../../dbConnection')
 
 const validateproductDataRegister = async (descricao, quantidade_estoque, valor, categoria_id) => {
     if (!descricao || !quantidade_estoque || !valor || !categoria_id) {

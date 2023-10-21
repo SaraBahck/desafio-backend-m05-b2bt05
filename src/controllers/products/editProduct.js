@@ -1,6 +1,6 @@
-const checkProductExistsById = require("../utils/checkProductExistsById");
-const updateProductIntoDatabase = require("../utils/updateProductIntoDatabase");
-const validateproductDataRegister = require("../utils/validateProductDataRegister");
+const checkProductExistsById = require("../../utils/checkFunctions/checkProducts/checkProductExistsById");
+const updateProductIntoDatabase = require("../../utils/insertFunctions/updateProductIntoDatabase");
+const validateproductDataRegister = require("../../utils/validations/validateProductDataRegister");
 
 const editProduct = async (req, res) => {
     const { id } = req.params;

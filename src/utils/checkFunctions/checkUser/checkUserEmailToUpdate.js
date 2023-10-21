@@ -1,4 +1,4 @@
-const knex = require('../dbConnection')
+const knex = require('../../../dbConnection')
 
 const checkEmailToUpdate= async (req, email) => {
   const emailExists = await knex('usuarios').where({ email }).first()

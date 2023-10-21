@@ -1,5 +1,5 @@
-const knex = require('../dbConnection')
-const { findProduct } = require('../utils/findProductByID')
+const knex = require('../../dbConnection')
+const { findProduct } = require('../../utils/checkFunctions/checkProducts/findProductByID')
 
 const deleteProduct = async (req, res) => {
     const { id } = req.params

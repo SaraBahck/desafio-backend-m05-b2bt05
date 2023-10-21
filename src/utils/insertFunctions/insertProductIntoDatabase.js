@@ -1,4 +1,4 @@
-const knex = require('../dbConnection')
+const knex = require('../../dbConnection')
 
 const insertProductIntoDatabase = async (descricao, quantidade_estoque, valor, categoria_id) => {
     const product = await knex('produtos')
