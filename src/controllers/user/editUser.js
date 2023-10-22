@@ -13,9 +13,9 @@ const editUser = async (req, res) => {
 
         const encryptedPassword = await bcrypt.hash(senha, 10)
 
-        await updatetUserIntoDatabase(req, nome, email, encryptedPassword)
+        const user = await updatetUserIntoDatabase(req, nome, email, encryptedPassword)
 
-        return res.status(204).send();
+        return res.status(200).json(user);
 
     } catch (error) {
         return res.status(error.code).json(error.message);

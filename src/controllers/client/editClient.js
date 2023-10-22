@@ -13,9 +13,9 @@ const editClient = async (req, res) => {
         await validateClientDataRegist(nome, email, cpf);
         await checkEmailClientToUpdate(req, email);
         await checkCpfClientToUpdate(req, cpf);
-        await updateClientIntoDatabase(req, nome, email, cpf, cep, rua, numero, bairro, cidade, estado);
+        const client = await updateClientIntoDatabase(req, nome, email, cpf, cep, rua, numero, bairro, cidade, estado);
 
-        return res.status(200).json({ mensagem: 'Cliente atualizado!' });
+        return res.status(200).json(client);
 
     } catch (error) {
         return res.status(error.code).json(error.message);
