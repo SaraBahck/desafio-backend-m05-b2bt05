@@ -32,16 +32,16 @@ router.post('/login', validacionSchema(loginJoi), userLogin)
 router.use(authentication)
 
 router.get('/usuario', detailUser)
-router.put('/usuario', editUser)
+router.put('/usuario', validacionSchema(userJoi), editUser)
 
 router.post('/produto', validacionSchema(productJoi), productRegistration)
-router.put('/produto/:id', validacionSchema(productJoi),editProduct)
+router.put('/produto/:id', validacionSchema(productJoi), editProduct)
 router.get('/produto', listProducts)
 router.get('/produto/:id', detailProduct)
 router.delete('/produto/:id', deleteProduct)
 
 router.post('/cliente', validacionSchema(clientJoi), registClient)
-router.put('/cliente/:id', validacionSchema(clientJoi), editClient) 
+router.put('/cliente/:id', validacionSchema(clientJoi), editClient)
 router.get('/cliente', listClient)
 router.get('/cliente/:id', detailClient)
 
