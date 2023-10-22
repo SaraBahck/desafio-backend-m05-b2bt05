@@ -17,12 +17,13 @@ const { detailClient } = require('./controllers/client/detailClient');
 const validacionSchema = require('./middlewares/validacionSchema');
 const clientJoi = require('./schemas/client');
 const productJoi = require('./schemas/product');
+const loginJoi = require('./schemas/login');
 
 const router = express();
 
 router.get('/categoria', listCategories)
 router.post('/usuario', userRegistration)
-router.post('/login', userLogin)
+router.post('/login', validacionSchema(loginJoi), userLogin)
 
 router.use(authentication)
 
