@@ -3,7 +3,7 @@ const knex = require('../../dbConnection')
 const updateClientIntoDatabase = async (req, nome, email, cpf, cep, rua, numero, bairro, cidade, estado) => {
     const register = await knex('clientes')
         .where({ id: req.params.id })
-        .update({ nome, email, cpf, cep, rua, numero, bairro, cidade, estado })
+        .update({ nome, email, cpf, cep, rua, numero, bairro, cidade, estado }).returning('*')
         ;
 
     if (!register) {
@@ -12,6 +12,8 @@ const updateClientIntoDatabase = async (req, nome, email, cpf, cep, rua, numero,
             message: "O cliente não foi atualizado"
         }
     };
+
+    return register[0];
 }
 
 module.exports = updateClientIntoDatabase
