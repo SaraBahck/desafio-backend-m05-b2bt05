@@ -268,8 +268,7 @@ OU
 
 #### Observação: Os campos nome, email e cpf são obrigatórios.
 
-//COLOCAR IMAGEM APÓS ALTERAÇÃO
-<img src='./assets/client/' width ='1000'>
+<img src='./assets/client/regist_client.png' width ='1000'>
 
 ---
 
