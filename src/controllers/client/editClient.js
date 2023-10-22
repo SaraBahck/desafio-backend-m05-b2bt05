@@ -1,4 +1,3 @@
-const validateClientDataRegist = require('../../utils/validations/validateClientDataRegist')
 const checkEmailClientToUpdate = require('../../utils/checkFunctions/checkClient/checkEmailClientToUpdate');
 const checkCpfClientToUpdate = require('../../utils/checkFunctions/checkClient/checkCpfClientToUpdate');
 const updateClientIntoDatabase = require('../../utils/insertFunctions/updateClientIntoDatabase');
@@ -10,7 +9,6 @@ const editClient = async (req, res) => {
 
     try {
         await findClientById(id);
-        await validateClientDataRegist(nome, email, cpf);
         await checkEmailClientToUpdate(req, email);
         await checkCpfClientToUpdate(req, cpf);
         const client = await updateClientIntoDatabase(req, nome, email, cpf, cep, rua, numero, bairro, cidade, estado);
