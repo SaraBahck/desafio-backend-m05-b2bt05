@@ -16,7 +16,9 @@ const userRegistration = async (req, res) => {
 
         const register = await insertUserIntoDatabase(nome, email, encryptedPassword)
 
-        return res.status(201).json(register);
+        const { senha: _, ...dataUser } = register;
+
+        return res.status(201).json(dataUser);
 
     } catch (error) {
         return res.status(error.code).json(error.message);
