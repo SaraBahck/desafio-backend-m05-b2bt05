@@ -15,7 +15,7 @@ const registClient = async (req, res) => {
         return res.status(201).json(client);
 
     } catch (error) {
-        return res.status(error.code).json(error.message);
+        return res.status(500).json(error.message);
     }
 }
 
