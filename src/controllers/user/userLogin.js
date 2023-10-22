@@ -2,13 +2,10 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const findUserByEmail = require('../../utils/checkFunctions/checkUser/findUserByEmail');
-const validateUserDataLogin = require('../../utils/validations/validateUserDataLogin');
-
 
 const userLogin = async (req, res) => {
   const { email, senha } = req.body
   try {
-    await validateUserDataLogin(email, senha)
     const loggedUser = await findUserByEmail(email)
 
     const user = loggedUser[0];

@@ -1,4 +1,5 @@
 const knex = require('../../dbConnection')
+const checkCategoryExists = require('../../utils/checkFunctions/checkProducts/checkCategoryExists')
 
 const listProducts = async (req, res) => {
   try {
@@ -7,6 +8,7 @@ const listProducts = async (req, res) => {
     const query = knex('produtos')
 
     if (categoria_id) {
+      await checkCategoryExists(categoria_id)
       query.where({ categoria_id })
     }
 

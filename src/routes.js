@@ -35,13 +35,13 @@ router.get('/usuario', detailUser)
 router.put('/usuario', editUser)
 
 router.post('/produto', validacionSchema(productJoi), productRegistration)
-router.put('/produto/:id', editProduct)
+router.put('/produto/:id', validacionSchema(productJoi),editProduct)
 router.get('/produto', listProducts)
 router.get('/produto/:id', detailProduct)
 router.delete('/produto/:id', deleteProduct)
 
 router.post('/cliente', validacionSchema(clientJoi), registClient)
-router.put('/cliente/:id', editClient)
+router.put('/cliente/:id', validacionSchema(clientJoi), editClient) 
 router.get('/cliente', listClient)
 router.get('/cliente/:id', detailClient)
 
