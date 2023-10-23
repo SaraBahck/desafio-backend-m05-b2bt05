@@ -15,8 +15,8 @@ const userJoi = joi.object({
         "string.trim": "O campo email não pode conter apenas espaços em branco",
         "string.base": "O campo email deve ser uma sequência de caracteres"
     }),
-    senha: joi.string().min(5).required().messages({
-        "string.min": "A senha deve ter no mínimo 5 caracteres",
+    senha: joi.string().min(4).required().messages({
+        "string.min": "A senha deve ter no mínimo 4 caracteres",
         "any.required": "É obrigatório preencher o campo senha",
         "string.empty": "O campo senha é obrigatório",
         "string.base": "O campo senha deve ser uma sequência de caracteres"
