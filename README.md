@@ -18,12 +18,21 @@ Você pode acessar e usar nossa aplicação diretamente através do link de depl
 
 ## 📌Funcionalidades
 
-- Listar categorias;
-- Cadastrar Usuário;
-- Efetuar Login do Usuário;
-- Detalhar Perfil do Usuário Logado;
-- Editar Perfil do Usuário Logado;
-
+- [Listar categorias](#listar-categorias)<a name="retornar-ao-índice"></a>
+- [Cadastrar Usuário](#cadastrar-usuario)
+- [Efetuar Login do Usuário](#efetuar-login)
+- [Detalhar Perfil do Usuário Logado](#detalhar-perfil-usuario)
+- [Editar Perfil do Usuário Logado](#editar-perfil-usuario)
+- [Cadastrar Produto](#cadastrar-produto)
+- [Editar Dados do Produto](#editar-dados-produto)
+- [Listar Produtos](#listar-produtos)
+- [Detalhar Produto](#detalhar-produto)
+- [Excluir Produto por ID](#excluir-produto-por-id)
+- [Cadastrar Cliente](#cadastrar-cliente)
+- [Editar dados do Cliente](#editar-dados-cliente)
+- [Listar Clientes](#listar-clientes)
+- [Detalhar Cliente](#detalhar-cliente)
+  
 ---
 
 ## 📌Utilização
@@ -31,9 +40,10 @@ Você pode acessar e usar nossa aplicação diretamente através do link de depl
 Para uma utilização eficiente da nossa aplicação, listaremos abaixo todos os endpoints com suas funcionalidades e devidas rotas.
 
 Para os testes utilizamos como url_base o nosso deploy:
+
 <img src='./assets/url_base.png' width ='500'>
 
-### 1. Listar categorias
+### 1. Listar categorias <a name="listar-categorias"></a>
 
 Endpoint: `GET /categoria`
 
@@ -41,10 +51,12 @@ Endpoint: `GET /categoria`
 
 <img src='./assets/categories/list_categories.png' width ='1000'>
 
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
 ---
 
 ## ✅Endpoints de Usuários
-### 1. Cadastrar Usuário
+### 1. Cadastrar Usuário <a name="cadastrar-usuario"></a>
 
 Endpoint: `POST /usuario`
 
@@ -64,9 +76,10 @@ Endpoint: `POST /usuario`
 
 <img src='./assets/user/regist_user.png' width ='1000'>
 
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
 ---
 
-### 2. Efetuar Login do Usuário
+### 2. Efetuar Login do Usuário <a name="efetuar-login"></a>
 
 Endpoint: `POST /login`
 
@@ -85,9 +98,10 @@ Endpoint: `POST /login`
 
 #### Observação: Após realizar o login com sucesso, um token será retornado. Esse token deve ser utilizado para autenticação nos próximos endpoints, pois eles são protegidos.
 
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
 ---
 
-### 3. Detalhar Perfil do Usuário Logado
+### 3. Detalhar Perfil do Usuário Logado <a name="detalhar-perfil-usuario"></a>
 
 Endpoint: `GET /usuario`
 
@@ -99,9 +113,11 @@ Endpoint: `GET /usuario`
 
 <img src='./assets/user/detail_user.png' width ='1000'>
 
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
 ---
 
-### 4. Editar Perfil do Usuário Logado
+### 4. Editar Perfil do Usuário Logado <a name="editar-perfil-usuario"></a>
 
 Endpoint: `PUT /usuario`
 
@@ -125,10 +141,12 @@ Authorization: Bearer SEU_TOKEN
 
 <img src='./assets/user/edit_user.png' width ='1000'>
 
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
 ---
 
 ## ✅Endpoints de Produtos
-### 1. Cadastrar Produto
+### 1. Cadastrar Produto <a name="cadastrar-produto"></a>
 
 Endpoint: `POST /produto`
 
@@ -153,9 +171,10 @@ Authorization: Bearer SEU_TOKEN
 
 <img src='./assets/product/regist_product.png' width ='1000'>
 
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
 ---
 
-### 2. Editar Dados do Produto
+### 2. Editar Dados do Produto <a name="editar-dados-produto"></a>
 
 Endpoint: `PUT /produto/:id`
 
@@ -180,9 +199,10 @@ Authorization: Bearer SEU_TOKEN
 
 <img src='./assets/product/edit_product.png' width ='1000'>
 
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
 ---
 
-### 3. Listar Produtos
+### 3. Listar Produtos <a name="listar-produtos"></a>
 
 Endpoint: `GET /produto`
 
@@ -202,9 +222,10 @@ Authorization: Bearer SEU_TOKEN
 
 <img src='./assets/product/list_product_without_query.png' width ='1000'>
 
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
 ---
 
-### 4. Detalhar Produto
+### 4. Detalhar Produto <a name="detalhar-produto"></a>
 
 Endpoint: `GET /produto/:id`
 
@@ -215,9 +236,11 @@ Endpoint: `GET /produto/:id`
 Authorization: Bearer SEU_TOKEN
 
 <img src='./assets/product/detail_product.png' width ='1000'>
+
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
 ---
 
-### 5. Excluir Produto por ID
+### 5. Excluir Produto por ID <a name="excluir-produto-por-id"></a>
 
 Endpoint: `DELETE /produto/:id`
 
@@ -228,10 +251,12 @@ Endpoint: `DELETE /produto/:id`
 Authorization: Bearer SEU_TOKEN
 
 <img src='./assets/product/delete_product.png' width ='1000'>
+
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
 ---
 
 ## ✅Endpoints de Clientes
-### 1. Cadastrar Cliente
+### 1. Cadastrar Cliente <a name="cadastrar-cliente"></a>
 
 Endpoint: `POST /cliente`
 
@@ -270,9 +295,10 @@ OU
 
 <img src='./assets/client/regist_client.png' width ='1000'>
 
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
 ---
 
-### 2. Editar dados do Cliente
+### 2. Editar dados do Cliente <a name="editar-dados-cliente"></a>
 
 Endpoint: `PUT /cliente/:id`
 
@@ -311,9 +337,10 @@ OU
 
 <img src='./assets/client/edit_client.png' width ='1000'>
 
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
 ---
 
-### 3. Listar Clientes
+### 3. Listar Clientes <a name="listar-clientes"></a>
 
 Endpoint: `GET /cliente`
 
@@ -325,9 +352,10 @@ Authorization: Bearer SEU_TOKEN
 
 <img src='./assets/client/list_client.png' width ='1000'>
 
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
 ---
 
-### 4. Detalhar Cliente
+### 4. Detalhar Cliente <a name="detalhar-cliente"></a>
 
 Endpoint: `GET /cliente/:id`
 
@@ -339,6 +367,7 @@ Authorization: Bearer SEU_TOKEN
 
 <img src='./assets/client/detail_client.png' width ='1000'>
 
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
 ---
 
 ## 📌Tecnologias
