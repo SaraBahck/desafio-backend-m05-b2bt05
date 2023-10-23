@@ -77,6 +77,7 @@ Endpoint: `POST /usuario`
 <img src='./assets/user/regist_user.png' width ='1000'>
 
 [![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
 ---
 
 ### 2. Efetuar Login do Usuário <a name="efetuar-login"></a>
@@ -99,6 +100,7 @@ Endpoint: `POST /login`
 #### Observação: Após realizar o login com sucesso, um token será retornado. Esse token deve ser utilizado para autenticação nos próximos endpoints, pois eles são protegidos.
 
 [![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
 ---
 
 ### 3. Detalhar Perfil do Usuário Logado <a name="detalhar-perfil-usuario"></a>
@@ -172,6 +174,7 @@ Authorization: Bearer SEU_TOKEN
 <img src='./assets/product/regist_product.png' width ='1000'>
 
 [![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
 ---
 
 ### 2. Editar Dados do Produto <a name="editar-dados-produto"></a>
@@ -200,6 +203,7 @@ Authorization: Bearer SEU_TOKEN
 <img src='./assets/product/edit_product.png' width ='1000'>
 
 [![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
 ---
 
 ### 3. Listar Produtos <a name="listar-produtos"></a>
@@ -223,6 +227,7 @@ Authorization: Bearer SEU_TOKEN
 <img src='./assets/product/list_product_without_query.png' width ='1000'>
 
 [![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
 ---
 
 ### 4. Detalhar Produto <a name="detalhar-produto"></a>
@@ -238,6 +243,7 @@ Authorization: Bearer SEU_TOKEN
 <img src='./assets/product/detail_product.png' width ='1000'>
 
 [![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
 ---
 
 ### 5. Excluir Produto por ID <a name="excluir-produto-por-id"></a>
@@ -253,6 +259,7 @@ Authorization: Bearer SEU_TOKEN
 <img src='./assets/product/delete_product.png' width ='1000'>
 
 [![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
 ---
 
 ## ✅Endpoints de Clientes
@@ -296,6 +303,7 @@ OU
 <img src='./assets/client/regist_client.png' width ='1000'>
 
 [![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
 ---
 
 ### 2. Editar dados do Cliente <a name="editar-dados-cliente"></a>
@@ -338,6 +346,7 @@ OU
 <img src='./assets/client/edit_client.png' width ='1000'>
 
 [![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
 ---
 
 ### 3. Listar Clientes <a name="listar-clientes"></a>
@@ -353,6 +362,7 @@ Authorization: Bearer SEU_TOKEN
 <img src='./assets/client/list_client.png' width ='1000'>
 
 [![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
 ---
 
 ### 4. Detalhar Cliente <a name="detalhar-cliente"></a>
@@ -368,6 +378,7 @@ Authorization: Bearer SEU_TOKEN
 <img src='./assets/client/detail_client.png' width ='1000'>
 
 [![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
 ---
 
 ## 📌Tecnologias
