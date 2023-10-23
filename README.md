@@ -247,13 +247,13 @@ Authorization: Bearer SEU_TOKEN
 {
   "nome": "Nome do Cliente",
   "email": "cliente@email.com",
-  "cpf": 99999999999,
-  "cep": 99999999,
+  "cpf": "99999999999",
+  "cep": "99999999",
   "rua": "Rua teste",
-  "numero": 99,
+  "numero": "99",
   "bairro": "Teste",
   "cidade": "Teste",
-  "estado": "Teste"
+  "estado": "Te"
 }
 ```
 OU
@@ -262,7 +262,7 @@ OU
 {
   "nome": "Nome do Cliente",
   "email": "cliente@email.com",
-  "cpf": 99999999999
+  "cpf": "99999999999"
 }
 ```
 
@@ -288,10 +288,10 @@ Authorization: Bearer SEU_TOKEN
 {
   "nome": "Nome do Cliente",
   "email": "cliente2@email.com",
-  "cpf": 99999999990,
-  "cep": 99999999,
+  "cpf": "99999999990",
+  "cep": "99999999",
   "rua": "Rua teste",
-  "numero": 99,
+  "numero": "99",
   "bairro": "Teste",
   "cidade": "Teste",
   "estado": "Teste"
@@ -303,7 +303,7 @@ OU
 {
   "nome": "Nome do Cliente",
   "email": "cliente2@email.com",
-  "cpf": 99999999990
+  "cpf": "99999999990"
 }
 ```
 
