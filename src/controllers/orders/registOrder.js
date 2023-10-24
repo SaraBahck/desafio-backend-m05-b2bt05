@@ -5,9 +5,15 @@ const registOrder = async (req, res) => {
     try {
         const { cliente_id, observacao, pedido_produtos } = req.body;
 
-        if (!cliente_id || !pedido_produtos || pedido_produtos.lenght === 0) {
+        if (!cliente_id || !pedido_produtos || pedido_produtos.length === 0) {
             console.log("entrou verificar se produto existe");
             return res.status(400).json({ message: "É necessário preencher todos os campos." });
+        } else {
+            for (const item of pedido_produtos) {
+                if (!item.produto_id || !item.quantidade_produto) {
+                    return res.status(400).json({ message: "No pedido_produtos deve ter um produto_id e uma quantidade_produtos" });
+                }
+            }
         }
 
         const client = await knex('clientes').where('id', cliente_id).first()
@@ -32,6 +38,8 @@ const registOrder = async (req, res) => {
             }
         }
 
+        ////////////////////////////////////////////
+
         let valor_total = 0;
 
         for (const item of pedido_produtos) {
@@ -40,7 +48,7 @@ const registOrder = async (req, res) => {
 
             const product = await knex('produtos').where('id', produto_id).first();
 
-            valor_total += product.valor * quantidade_produto;
+            valor_total += (product.valor * quantidade_produto);
             console.log(valor_total)
         }
 
@@ -49,20 +57,20 @@ const registOrder = async (req, res) => {
             cliente_id,
             observacao,
             valor_total,
-        });
-        // console.log(insertOrder)
+        }).returning('id');
+        console.log(insertOrder)
 
         for (const item of pedido_produtos) {
             const { produto_id, quantidade_produto } = item;
             console.log(produto_id, quantidade_produto)
             // Não está vindo o valor
-
+            const product = await knex('produtos').where('id', produto_id).first();
             //Dando muito problema aqui kkkk
             await knex('pedido_produtos').insert({
-                pedido_id,
+                pedido_id: insertOrder[0].id,
                 produto_id,
                 quantidade_produto,
-                valor_produto: quantidade_produto * produto_id,
+                valor_produto: product.valor,
             });
         }
 
