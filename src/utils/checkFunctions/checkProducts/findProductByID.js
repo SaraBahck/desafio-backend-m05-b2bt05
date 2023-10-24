@@ -1,4 +1,4 @@
-const knex = require('../../connections/dbConnection');
+const knex = require('../../../connections/dbConnection');
 
 const findProduct = async (id) => {
   const product = await knex('produtos').where({

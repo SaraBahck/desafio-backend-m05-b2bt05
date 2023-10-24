@@ -1,4 +1,4 @@
-const knex = require('../../connections/dbConnection');
+const knex = require('../../../connections/dbConnection');
 
 const checkCpfClientToUpdate = async (req, cpf) => {
     const cpfExists = await knex('clientes').where('cpf', '=', cpf).where('id', '!=', req.params.id).first()
