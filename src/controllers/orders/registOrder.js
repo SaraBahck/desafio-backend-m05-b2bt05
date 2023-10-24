@@ -6,7 +6,6 @@ const registOrder = async (req, res) => {
         const { cliente_id, observacao, pedido_produtos } = req.body;
 
         if (!cliente_id || !pedido_produtos || pedido_produtos.length === 0) {
-            console.log("entrou verificar se produto existe");
             return res.status(400).json({ message: "É necessário preencher todos os campos." });
         } else {
             for (const item of pedido_produtos) {
@@ -19,7 +18,6 @@ const registOrder = async (req, res) => {
         const client = await knex('clientes').where('id', cliente_id).first()
 
         if (!client) {
-            console.log("entrou em verificar se tem cliente")
             return res.status(400).json({ message: "Cliente não encontrado" })
         }
 
@@ -42,12 +40,10 @@ const registOrder = async (req, res) => {
 
         for (const item of pedido_produtos) {
             const { produto_id, quantidade_produto } = item;
-            console.log(produto_id, quantidade_produto)
 
             const product = await knex('produtos').where('id', produto_id).first();
 
             valor_total += (product.valor * quantidade_produto);
-            console.log(valor_total)
         }
 
         const insertOrder = await knex('pedidos').insert({
@@ -55,11 +51,9 @@ const registOrder = async (req, res) => {
             observacao,
             valor_total,
         }).returning('id');
-        console.log(insertOrder)
 
         for (const item of pedido_produtos) {
             const { produto_id, quantidade_produto } = item;
-            console.log(produto_id, quantidade_produto)
 
             const product = await knex('produtos').where('id', produto_id).first();
 
@@ -77,7 +71,6 @@ const registOrder = async (req, res) => {
         return res.status(200).json({ message: "Pedido cadastrado com sucesso." })
 
     } catch (error) {
-        console.log("Erro ao cadastrar pedido: " + error)
         return res.status(500).json({ message: "Erro interno ao cadastrar pedido." })
     }
 
