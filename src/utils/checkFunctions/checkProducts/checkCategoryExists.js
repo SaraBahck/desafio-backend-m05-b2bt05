@@ -1,4 +1,4 @@
-const knex = require('../../../dbConnection')
+const knex = require('../../connections/dbConnection');
 
 const checkCategoryExists = async (categoria_id) => {
   const categoryExists = await knex('categorias').where({ id: categoria_id })
