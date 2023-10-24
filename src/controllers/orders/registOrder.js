@@ -27,8 +27,7 @@ const registOrder = async (req, res) => {
             const { produto_id, quantidade_produto } = item
 
             const product = await knex('produtos').where('id', produto_id).first();
-            // console.log(product)
-            //colocar o id do produto que não foi encontrado
+
             if (!product) {
                 return res.status(404).json({ message: "O produto não encontrado, por favor, escolha um novo produto." })
             }
@@ -38,7 +37,6 @@ const registOrder = async (req, res) => {
             }
         }
 
-        ////////////////////////////////////////////
 
         let valor_total = 0;
 
@@ -52,7 +50,6 @@ const registOrder = async (req, res) => {
             console.log(valor_total)
         }
 
-        //Daqui para frente, só para trás kkkk
         const insertOrder = await knex('pedidos').insert({
             cliente_id,
             observacao,
@@ -63,9 +60,12 @@ const registOrder = async (req, res) => {
         for (const item of pedido_produtos) {
             const { produto_id, quantidade_produto } = item;
             console.log(produto_id, quantidade_produto)
-            // Não está vindo o valor
+
             const product = await knex('produtos').where('id', produto_id).first();
-            //Dando muito problema aqui kkkk
+
+            const newStock = product.quantidade_estoque - quantidade_produto;
+            await knex('produtos').where('id', produto_id).update({ quantidade_estoque: newStock });
+
             await knex('pedido_produtos').insert({
                 pedido_id: insertOrder[0].id,
                 produto_id,
