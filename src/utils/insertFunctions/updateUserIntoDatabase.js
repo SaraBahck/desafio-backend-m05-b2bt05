@@ -1,4 +1,4 @@
-const knex = require('../../dbConnection')
+const knex = require('../../connections/dbConnection');
 
 const updatetUserIntoDatabase = async (req, nome, email, encryptedPassword) => {
     const register = await knex('usuarios')

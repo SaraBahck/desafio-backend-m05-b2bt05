@@ -1,4 +1,6 @@
-const knex = require('../../dbConnection');
+const knex = require('../../connections/dbConnection');
+const transporter = require('../../connections/nodemailer');
+const compilerHtml = require('../../utils/sendEmails/compilerHtml');
 
 const registOrder = async (req, res) => {
 
@@ -16,7 +18,7 @@ const registOrder = async (req, res) => {
         }
 
         const client = await knex('clientes').where('id', cliente_id).first()
-
+ 
         if (!client) {
             return res.status(400).json({ message: "Cliente não encontrado" })
         }
@@ -68,7 +70,20 @@ const registOrder = async (req, res) => {
             });
         }
 
-        return res.status(200).json({ message: "Pedido cadastrado com sucesso." })
+        const html = await compilerHtml('./src/templates/sendEmail.html', {
+            client: `${client.nome}`,
+            text: `Seu pedido foi realizado com sucesso`,
+            details: 'Detalhes sobre o pedido'
+        })
+
+        transporter.sendMail({
+            from: 'Nome do PDV <pdv@email.com>',
+            to: `${client.nome} <${client.email}>`,
+            subject: 'Pedido realizado com sucesso',
+            html
+        })
+
+        return res.status(201).json({ message: "Pedido cadastrado com sucesso." })
 
     } catch (error) {
         return res.status(500).json({ message: "Erro interno ao cadastrar pedido." })
