@@ -1,6 +1,5 @@
 const knex = require('../../connections/dbConnection');
-const transporter = require('../../connections/nodemailer');
-const compilerHtml = require('../../utils/sendEmails/compilerHtml');
+const sendEmail = require('../../utils/sendEmails/sendRegistEmail');
 
 const registOrder = async (req, res) => {
 
@@ -70,18 +69,7 @@ const registOrder = async (req, res) => {
             });
         }
 
-        const html = await compilerHtml('./src/templates/sendEmail.html', {
-            client: `${client.nome}`,
-            text: `Seu pedido foi realizado com sucesso`,
-            details: 'Detalhes sobre o pedido'
-        })
-
-        transporter.sendMail({
-            from: 'Nome do PDV <pdv@email.com>',
-            to: `${client.nome} <${client.email}>`,
-            subject: 'Pedido realizado com sucesso',
-            html
-        })
+        await sendEmail(client)
 
         return res.status(201).json({ message: "Pedido cadastrado com sucesso." })
 
