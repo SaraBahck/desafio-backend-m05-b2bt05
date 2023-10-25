@@ -1,11 +1,11 @@
 const nodemailer = require('nodemailer')
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.elasticemail.com',
-    port: 2525,
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
     auth: {
-        user: 'pdvshopeasy@gmail.com',
-        pass: '62A4B45D4E8F61636A7474BA46DAA23B6008',
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
     },
     ssl : { rejectUnauthorized: false }
 })

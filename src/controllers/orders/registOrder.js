@@ -77,7 +77,7 @@ const registOrder = async (req, res) => {
         })
 
         transporter.sendMail({
-            from: 'Nome do PDV <gessyca.borges@gmail.com>',
+            from: 'Shop Easy <pdvshopeasy@gmail.com>',
             to: `${client.nome} <${client.email}>`,
             subject: 'Pedido realizado com sucesso',
             html
