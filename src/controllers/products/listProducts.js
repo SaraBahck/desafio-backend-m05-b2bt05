@@ -1,4 +1,4 @@
-const knex = require('../../dbConnection')
+const knex = require('../../connections/dbConnection');
 const checkCategoryExists = require('../../utils/checkFunctions/checkProducts/checkCategoryExists')
 
 const listProducts = async (req, res) => {

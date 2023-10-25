@@ -1,4 +1,4 @@
-const knex = require('../../dbConnection')
+const knex = require('../../connections/dbConnection');
 const { findProduct } = require('../../utils/checkFunctions/checkProducts/findProductByID')
 
 const deleteProduct = async (req, res) => {
