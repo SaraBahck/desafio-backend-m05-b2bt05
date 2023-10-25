@@ -28,7 +28,7 @@ const productRegistration = async (req, res) => {
         )
 
         const productImage = await knex('produtos').update({
-            produto_imagem: image.path
+            produto_imagem: image.url
         }).where({ id }).returning('*')
 
 
