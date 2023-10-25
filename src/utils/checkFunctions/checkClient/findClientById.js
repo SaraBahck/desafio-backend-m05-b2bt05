@@ -1,4 +1,4 @@
-const knex = require('../../../dbConnection');
+const knex = require('../../../connections/dbConnection');
 
 
 const findClientById = async (id) => {
