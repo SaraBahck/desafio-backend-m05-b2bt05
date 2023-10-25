@@ -69,7 +69,7 @@ const registOrder = async (req, res) => {
             });
         }
 
-        await sendEmail(client)
+        sendEmail(pedido_produtos, client)
 
         return res.status(201).json({ message: "Pedido cadastrado com sucesso." })
 

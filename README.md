@@ -41,7 +41,7 @@ Para uma utilização eficiente da nossa aplicação, listaremos abaixo todos os
 
 Para os testes utilizamos como url_base o nosso deploy:
 
-<img src='./assets/url_base.png' width ='500'>
+<img src='./assets/others/url_base.png' width ='500'>
 
 ### 1. Listar categorias <a name="listar-categorias"></a>
 
