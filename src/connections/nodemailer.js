@@ -1,12 +1,11 @@
 const nodemailer = require('nodemailer')
 
-//Mailosaur
 const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: process.env.EMAIL_PORT,
+    host: 'smtp.elasticemail.com',
+    port: 2525,
     auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: 'pdvshopeasy@gmail.com',
+        pass: '62A4B45D4E8F61636A7474BA46DAA23B6008',
     },
     ssl : { rejectUnauthorized: false }
 })
