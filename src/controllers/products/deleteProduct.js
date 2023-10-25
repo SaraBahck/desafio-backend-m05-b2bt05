@@ -1,27 +1,26 @@
 const knex = require('../../connections/dbConnection');
 const { findProduct } = require('../../utils/checkFunctions/checkProducts/findProductByID')
-const findProductInOrder = require('../../utils/checkFunctions/checkProducts/findProductInOrder');
+const findProductInOrder = require('../../utils/checkFunctions/checkProducts/findProductInOrderToDelete');
+const { deleteFileInBackblaze } = require('../../connections/backblaze');
 
 const deleteProduct = async (req, res) => {
     const { id } = req.params
 
     try {
-        const findedProduct = await findProduct(id)
+        const product = await findProduct(id)
 
-        if (!findedProduct) {
-            return res.status(404).json(error.message)
-        }
+        await findProductInOrder(id)
 
-        const findInOrder = findProductInOrder(id)
+        const productImageKey = `produtos/${id}/`
 
-        if (findInOrder) {
-            return res.status(403).json({ message: "O produto não pode ser excluído pois está em um pedido" })
+        if (product.produto_imagem !== null){
+            await deleteFileInBackblaze(productImageKey)
         }
 
         const deleteProduct = await knex('produtos').where({
             id
-        })
-            .del()
+        }).del()
+
         if (!deleteProduct) {
             throw {
                 code: 400,
@@ -30,7 +29,7 @@ const deleteProduct = async (req, res) => {
         }
         return res.status(204).send();
     } catch (error) {
-        return res.status(500).json(error.message)
+        return res.status(error.code).json(error.message)
     }
 }
 
