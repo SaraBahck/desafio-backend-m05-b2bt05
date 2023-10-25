@@ -35,8 +35,11 @@ const deleteFileInBackblaze = async (folderPath) => {
     const objects = await s3.listObjectsV2(params).promise();
 
     if (objects.Contents.length === 0) {
-        console.log("A pasta está vazia, nada para excluir.");
-        return;
+        throw{
+            code: 400,
+            message: "A pasta está vazia, nada para excluir."
+        }
+
     }
 
     const deleteParams = {
@@ -50,7 +53,6 @@ const deleteFileInBackblaze = async (folderPath) => {
 
     await s3.deleteObjects(deleteParams).promise();
 
-    console.log(`Pasta ${folderPath} excluída com sucesso.`);
 }
 
 module.exports = {
