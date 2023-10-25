@@ -1,3 +1,5 @@
+<img src='./assets/others/Shop Easy.png'>
+
 # Sistema de Ponto de Venda
 
 <img alt="Status Em Desenvolvimento" src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-brightgreen">
