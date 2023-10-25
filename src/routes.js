@@ -38,7 +38,7 @@ router.use(authentication)
 router.get('/usuario', detailUser)
 router.put('/usuario', validacionSchema(userJoi), editUser)
 
-router.post('/produto', multer.single('imagem'), validacionSchema(productJoi), productRegistration)
+router.post('/produto', multer.single('produto_imagem'), validacionSchema(productJoi), productRegistration)
 router.put('/produto/:id', validacionSchema(productJoi), editProduct)
 router.get('/produto', listProducts)
 router.get('/produto/:id', detailProduct)
