@@ -20,7 +20,7 @@ const orderJoi = joi.object({
             "number.empty": "O campo quantidade_produto não pode estar vazio",
             "number.base": "O campo quantidade_produto deve ser uma sequência de números"
         })
-    })).min(1).required.messages({
+    })).min(1).required().messages({
         "array.min": "Em pedido_produtos, deve haver pelo menos um produto",
         "any.required": "O campo pedido_produtos é obrigatório"
     })
