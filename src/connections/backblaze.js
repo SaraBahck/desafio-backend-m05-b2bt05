@@ -1,8 +1,8 @@
-const aws = require('aws-sdk')
+const AWS = require('aws-sdk')
 
-const endpoint = new aws.Endpoint(process.env.ENDPOINT_S3)
+const endpoint = new AWS.Endpoint(process.env.ENDPOINT_S3)
 
-const s3 = new aws.S3({
+const s3 = new AWS.S3({
     endpoint,
     credentials: {
         accessKeyId: process.env.KEY_ID,
@@ -24,24 +24,8 @@ const uploadFile = async (path, buffer, mimetype) => {
     }
 }
 
-// ACHO QUE NÃO VAI PRECISAR, EXCLUIR DEPOIS:
-// const listFiles = async () => {
-//     const files = await s3.listObjects({
-//         Bucket: process.env.BACKBLAZE_BUCKET
-//     }).promise()
-// 
-//     const listFiles = files.Contents.map((file) => {
-//         return {
-//             url: `https://${process.env.BACKBLAZE_BUCKET}.${process.env.ENDPOINT_S3}/${file.Key}`,
-//             path: file.Key
-//         }
-//     })
-// 
-//     return listFiles
-// }
-// 
 
-const deleteFile = async (path) => {
+const deleteFileInBackblaze = async (path) => {
     await s3.deleteObject({
         Bucket: process.env.BACKBLAZE_BUCKET,
         Key: path
@@ -50,6 +34,5 @@ const deleteFile = async (path) => {
 
 module.exports = {
     uploadFile,
-    listFiles,
-    deleteFile
+    deleteFileInBackblaze
 }
