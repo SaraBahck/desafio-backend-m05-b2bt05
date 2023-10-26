@@ -14,7 +14,7 @@ const registOrder = async (req, res) => {
 
     try {
 
-        await findClientById(cliente_id);
+        const client = await findClientById(cliente_id);
 
         for (const item of pedido_produtos) {
             const { produto_id, quantidade_produto } = item
@@ -34,6 +34,7 @@ const registOrder = async (req, res) => {
         return res.status(201).json(order);
 
     } catch (error) {
+        console.log (error)
         return res.status(error.code).json(error.message);
     }
 
