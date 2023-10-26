@@ -25,11 +25,34 @@ const uploadFile = async (path, buffer, mimetype) => {
 }
 
 
-const deleteFileInBackblaze = async (path) => {
-    await s3.deleteObject({
+const deleteFileInBackblaze = async (folderPath) => {
+   
+    const params = {
         Bucket: process.env.BACKBLAZE_BUCKET,
-        Key: path
-    }).promise()
+        Prefix: folderPath
+    };
+
+    const objects = await s3.listObjectsV2(params).promise();
+
+    if (objects.Contents.length === 0) {
+        throw{
+            code: 400,
+            message: "A pasta está vazia, nada para excluir."
+        }
+
+    }
+
+    const deleteParams = {
+        Bucket: process.env.BACKBLAZE_BUCKET,
+        Delete: { Objects: [] }
+    };
+
+    objects.Contents.forEach(obj => {
+        deleteParams.Delete.Objects.push({ Key: obj.Key });
+    });
+
+    await s3.deleteObjects(deleteParams).promise();
+
 }
 
 module.exports = {

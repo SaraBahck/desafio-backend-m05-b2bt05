@@ -28,13 +28,12 @@ const productRegistration = async (req, res) => {
         )
 
         const productImage = await knex('produtos').update({
-            produto_imagem: image.path
+            produto_imagem: image.url
         }).where({ id }).returning('*')
 
 
         return res.status(201).json(productImage);
     } catch (error) {
-        console.log(error.message)
         return res.status(error.code).json(error.message);
     }
 }
