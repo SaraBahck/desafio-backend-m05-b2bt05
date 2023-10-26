@@ -2,7 +2,6 @@ const checkProductExistsIntoDb = require("../../utils/checkFunctions/checkProduc
 const insertProductIntoDatabase = require("../../utils/insertFunctions/insertProductIntoDatabase");
 const checkCategoryExists = require("../../utils/checkFunctions/checkProducts/checkCategoryExists");
 const { insertImageInToBackblaze } = require("../../utils/insertFunctions/insertProductImageInToBackblaze");
-const checkNegativeStock = require("../../utils/checkFunctions/checkProducts/checkNegativeStock");
 
 const productRegistration = async (req, res) => {
     try {
@@ -12,8 +11,6 @@ const productRegistration = async (req, res) => {
         await checkCategoryExists(categoria_id)
 
         await checkProductExistsIntoDb(descricao)
-
-        await checkNegativeStock(quantidade_estoque)
 
         let product = await insertProductIntoDatabase(descricao, quantidade_estoque, valor, categoria_id)
 
