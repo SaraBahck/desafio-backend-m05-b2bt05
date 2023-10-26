@@ -10,7 +10,7 @@ const updateStockAndInsertOrder = async (pedido_produtos, orderId) => {
         await knex('produtos').where('id', produto_id).update({ quantidade_estoque: newStock });
 
         await knex('pedido_produtos').insert({
-            pedido_id: orderId.id,
+            pedido_id: orderId,
             produto_id,
             quantidade_produto,
             valor_produto: product.valor,
