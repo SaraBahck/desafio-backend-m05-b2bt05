@@ -1,4 +1,3 @@
-const knex = require('../../connections/dbConnection');
 const { findClientById } = require('../../utils/checkFunctions/checkClient/findClientById');
 const { calculateOrder } = require('../../utils/checkFunctions/checkOrders/calculateOrder');
 const { checkStock } = require('../../utils/checkFunctions/checkProducts/checkStockProducts');
@@ -34,7 +33,6 @@ const registOrder = async (req, res) => {
         return res.status(201).json(order);
 
     } catch (error) {
-        console.log (error)
         return res.status(error.code).json(error.message);
     }
 

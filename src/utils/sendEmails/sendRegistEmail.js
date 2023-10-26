@@ -24,7 +24,6 @@ const sendEmail = async (pedidos_produtos, client) => {
         
         details = details + product + "\n"
         totalPrice += total
-        console.log(totalPrice)
     }
 
     const html = await compilerHtml('./src/templates/sendEmail.html', {
