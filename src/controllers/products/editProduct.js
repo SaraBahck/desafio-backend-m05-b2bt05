@@ -6,21 +6,21 @@ const knex = require('../../connections/dbConnection')
 
 const editProduct = async (req, res) => {
     const { id } = req.params;
-    const { descricao, quantidade_estoque, valor, categoria_id, produto_imagem } = req.body;
+    const { descricao, quantidade_estoque, valor, categoria_id } = req.body;
     const { file } = req;
 
     try {
         await checkCategoryExists(categoria_id);
         await checkProductExistsById(id, descricao);
 
-        const product = await updateProductIntoDatabase(id, descricao, quantidade_estoque, valor, categoria_id)
+        let product = await updateProductIntoDatabase(id, descricao, quantidade_estoque, valor, categoria_id)
 
         if (file) {
-            const image = await uploadFile('produtos/${id}/${file.originalname}', file.buffer, file.minetype)
+            const image = await uploadFile(`produtos/${id}/${file.originalname}`, file.buffer, file.minetype)
 
             product = await knex('produtos')
                 .update({
-                    produto_imagem: image.path
+                    produto_imagem: image.url
                 })
                 .where({ id })
                 .returning('*')
