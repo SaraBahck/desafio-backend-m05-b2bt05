@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #email {
+            background-color: #2D2D36;
+            padding: 5%;
+        }
+        h1 {
+            color:#CD0870;
+        }
+        pre {
+            color: #E1E1E1;
+            font-size: 15px;
+            font-weight: bold;
+        } 
+        p {
+            color: #E1E1E1;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="email">
+        <h1>Olá {{client}}!</h1>
+        <p>{{text}}</p>
+        <pre>{{details}}</pre>
+        <p>Valor total do pedido: R$ {{totalPrice}}</p>
+    </div>
+</body>
+</html>

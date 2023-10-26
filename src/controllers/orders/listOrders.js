@@ -1,5 +1,5 @@
 const { findClientId } = require('../../utils/checkFunctions/checkOrders/findClientByIDinOrdersTable');
-const knex = require('./../../dbConnection');
+const knex = require('../../connections/dbConnection');
 
 const listOrder = async (req, res) => {
     try {
