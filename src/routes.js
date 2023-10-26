@@ -23,9 +23,11 @@ const clientJoi = require('./schemas/client');
 const productJoi = require('./schemas/product');
 const loginJoi = require('./schemas/login');
 const userJoi = require('./schemas/user');
+const orderJoi = require('./schemas/order');
 
 const { registOrder } = require('./controllers/orders/registOrder');
 const { listOrder } = require('./controllers/orders/listOrders');
+
 
 const router = express();
 
@@ -49,7 +51,7 @@ router.put('/cliente/:id', validacionSchema(clientJoi), editClient)
 router.get('/cliente', listClient)
 router.get('/cliente/:id', detailClient)
 
-router.post('/pedido', registOrder)
+router.post('/pedido', validacionSchema(orderJoi), registOrder)
 router.get('/pedido', listOrder)
 
 module.exports = router;
