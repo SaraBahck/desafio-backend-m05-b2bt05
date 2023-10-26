@@ -1,8 +1,7 @@
 const checkProductExistsById = require("../../utils/checkFunctions/checkProducts/checkProductExistsById");
 const updateProductIntoDatabase = require("../../utils/insertFunctions/updateProductIntoDatabase");
 const checkCategoryExists = require("../../utils/checkFunctions/checkProducts/checkCategoryExists");
-const { uploadFile } = require("../../connections/backblaze");
-const knex = require('../../connections/dbConnection')
+const { insertImageInToBackblaze } = require("../../utils/insertFunctions/insertProductImageInToBackblaze");
 
 const editProduct = async (req, res) => {
     const { id } = req.params;
@@ -16,14 +15,7 @@ const editProduct = async (req, res) => {
         let product = await updateProductIntoDatabase(id, descricao, quantidade_estoque, valor, categoria_id)
 
         if (file) {
-            const image = await uploadFile(`produtos/${id}/${file.originalname}`, file.buffer, file.minetype)
-
-            product = await knex('produtos')
-                .update({
-                    produto_imagem: image.url
-                })
-                .where({ id })
-                .returning('*')
+            product = await insertImageInToBackblaze(file, id)
         }
 
         return res.status(200).json(product);
