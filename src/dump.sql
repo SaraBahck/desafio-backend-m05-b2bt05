@@ -60,3 +60,5 @@ CREATE TABLE pedido_produtos (
 );
 
 ALTER TABLE produtos ADD COLUMN produto_imagem text;
+
+ALTER TABLE produtos ADD CHECK (quantidade_estoque >= 0);

@@ -1,4 +1,5 @@
 const express = require('express');
+const multer = require('./middlewares/multer')
 const { listCategories } = require('./controllers/categories/categories');
 const { userRegistration } = require('./controllers/user/registUser');
 const { userLogin } = require('./controllers/user/userLogin');
@@ -22,9 +23,11 @@ const clientJoi = require('./schemas/client');
 const productJoi = require('./schemas/product');
 const loginJoi = require('./schemas/login');
 const userJoi = require('./schemas/user');
+const orderJoi = require('./schemas/order');
 
 const { registOrder } = require('./controllers/orders/registOrder');
 const { listOrder } = require('./controllers/orders/listOrders');
+
 
 const router = express();
 
@@ -37,8 +40,8 @@ router.use(authentication)
 router.get('/usuario', detailUser)
 router.put('/usuario', validacionSchema(userJoi), editUser)
 
-router.post('/produto', validacionSchema(productJoi), productRegistration)
-router.put('/produto/:id', validacionSchema(productJoi), editProduct)
+router.post('/produto', multer.single('produto_imagem'), validacionSchema(productJoi), productRegistration)
+router.put('/produto/:id', multer.single('produto_imagem'), validacionSchema(productJoi), editProduct)
 router.get('/produto', listProducts)
 router.get('/produto/:id', detailProduct)
 router.delete('/produto/:id', deleteProduct)
@@ -48,7 +51,7 @@ router.put('/cliente/:id', validacionSchema(clientJoi), editClient)
 router.get('/cliente', listClient)
 router.get('/cliente/:id', detailClient)
 
-router.post('/pedido', registOrder)
+router.post('/pedido', validacionSchema(orderJoi), registOrder)
 router.get('/pedido', listOrder)
 
 module.exports = router;
