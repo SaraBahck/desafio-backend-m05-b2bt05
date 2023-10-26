@@ -9,13 +9,15 @@ const productJoi = joi.object({
   }),
   quantidade_estoque: joi
     .number()
+    .min(0)
     .required()
     .messages({
       "any.required": "O campo de quantidade de estoque é obrigatório",
+      "number.min": "O estoque não pode ser negativo",
       "number.empty": "O campo quantidade de estoque não pode está vazio",
       "number.base": "O campo deve ser uma sequência de numeros"
     }),
-    valor: joi
+  valor: joi
     .number()
     .required()
     .messages({
@@ -23,7 +25,7 @@ const productJoi = joi.object({
       "number.empty": "O campo valor não pode está vazio",
       "number.base": "O campo deve ser uma sequência de numeros"
     }),
-    categoria_id: joi
+  categoria_id: joi
     .number()
     .required()
     .messages({
