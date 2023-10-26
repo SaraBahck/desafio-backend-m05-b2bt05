@@ -39,7 +39,7 @@ router.get('/usuario', detailUser)
 router.put('/usuario', validacionSchema(userJoi), editUser)
 
 router.post('/produto', multer.single('produto_imagem'), validacionSchema(productJoi), productRegistration)
-router.put('/produto/:id', validacionSchema(productJoi), editProduct)
+router.put('/produto/:id', multer.single('produto_imagem'), validacionSchema(productJoi), editProduct)
 router.get('/produto', listProducts)
 router.get('/produto/:id', detailProduct)
 router.delete('/produto/:id', deleteProduct)
