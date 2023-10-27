@@ -162,16 +162,9 @@ Authorization: Bearer SEU_TOKEN
 
 #### Corpo da requisição:
 
-```JSON
-{
-  "descricao": "Nome do Produto",
-  "quantidade_estoque": 100,
-  "valor": 5000,
-  "categoria_id": 1
-}
-```
+<img src='./assets/product/req_regist_product.png' width ='500'>
 
-#### Observação: todos os campos são obrigatórios.
+#### Observação: todos os campos são obrigatórios, exceto a imagem do produto.
 
 <img src='./assets/product/regist_product.png' width ='1000'>
 
@@ -191,16 +184,9 @@ Authorization: Bearer SEU_TOKEN
 
 #### Corpo da requisição:
 
-```JSON
-{
-  "descricao": "Nome do Produto",
-	"quantidade_estoque": 150,
-	"valor": 5500,
-	"categoria_id": 8
-}
-```
+<img src='./assets/product/req_edit_product.png' width ='500'>
 
-#### Observação: todos os campos são obrigatórios.
+#### Observação: todos os campos são obrigatórios, exceto a imagem do produto.
 
 <img src='./assets/product/edit_product.png' width ='1000'>
 
@@ -382,6 +368,68 @@ Authorization: Bearer SEU_TOKEN
 [![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
 
 ---
+
+## ✅Endpoints de Pedidos
+### 1. Cadastrar Pedido <a name="cadastrar-pedido"></a>
+
+Endpoint: `POST /pedido`
+
+> Essa é a rota que será utilizada para cadastrar um novo pedido no sistema.
+
+#### Corpo da requisição:
+
+```JSON
+{
+    "cliente_id": 8,
+    "observacao": "Em caso de ausência recomendo deixar com algum vizinho",
+    "pedido_produtos": [
+        {
+            "produto_id": 18,
+            "quantidade_produto": 2
+        },
+			        {
+            "produto_id": 8,
+            "quantidade_produto": 1
+        }
+    ]
+}
+```
+
+#### Observação: todos os campos são obrigatórios.
+
+<img src='./assets/order/regist_order.png' width ='1000'>
+
+> Um e-mail é enviado para o cliente notificando que o pedido foi efetuado com sucesso.  
+
+<img src='./assets/order/email.png' width ='1000'>
+
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
+---
+### 2. Listar Pedidos <a name="listar-pedidos"></a>
+
+Endpoint: `GET /pedido`
+
+> Essa é a rota que será chamada quando o usuário logado quiser listar todos os pedidos cadastrados.
+
+#### Header:
+
+Authorization: Bearer SEU_TOKEN
+
+#### Requisição:
+
+- Caso seja enviado o parâmetro do tipo query **cliente_id**, filtrar os pedidos de acordo com o cliente, caso o id do cliente informado exista.
+
+<img src='./assets/order/list_order_without_query.png' width ='1000'>
+
+- Caso não seja informado o parâmetro do tipo query **cliente_id** todos os pedidos cadastrados deverão ser retornados.
+
+<img src='./assets/order/list_order_with_query.png'>
+
+[![Retornar ao índice](https://img.shields.io/badge/Retornar%20ao%20%C3%ADndice-Verde%20Escuro?color=%23006400&style=flat&labelColor=%23006400&logo=github)](#retornar-ao-índice)
+
+---
+
 
 ## 📌Tecnologias
 
