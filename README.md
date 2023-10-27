@@ -34,6 +34,8 @@ Você pode acessar e usar nossa aplicação diretamente através do link de depl
 - [Editar dados do Cliente](#editar-dados-cliente)
 - [Listar Clientes](#listar-clientes)
 - [Detalhar Cliente](#detalhar-cliente)
+- [Cadastrar Pedido](#cadastrar-pedido)
+- [Listar Pedidos](#listar-pedidos)
   
 ---
 
