@@ -34,7 +34,7 @@ const sendEmail = async (pedidos_produtos, client) => {
     })
     try {
         transporter.sendMail({
-            from: 'Shop Easy <pdvshopeasy@gmail.com>',
+            from: 'Shop Easy <dafsveterinaria@gmail.com>',
             to: `${client.nome} <${client.email}>`,
             subject: 'Pedido realizado com sucesso',
             html
