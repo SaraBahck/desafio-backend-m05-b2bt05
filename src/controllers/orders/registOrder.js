@@ -28,7 +28,7 @@ const registOrder = async (req, res) => {
 
         await updateStockAndInsertOrder(pedido_produtos, order.id);
 
-        sendEmail(pedido_produtos, client)
+        sendEmail(pedido_produtos, client);
 
         return res.status(201).json(order);
 
