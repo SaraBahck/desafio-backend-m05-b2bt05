@@ -33,7 +33,7 @@ const sendEmail = async (pedidos_produtos, client) => {
         totalPrice: totalPrice.toFixed(2)
     })
     try {
-        await transporter.sendMail({
+        transporter.sendMail({
             from: 'Shop Easy <pdvshopeasy@gmail.com>',
             to: `${client.nome} <${client.email}>`,
             subject: 'Pedido realizado com sucesso',
