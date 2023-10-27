@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
         pass: process.env.EMAIL_PASS,
     },
     ssl: { rejectUnauthorized: false },
-    secureProtocol: "TLSv1_2_method"
+    //secureProtocol: "TLSv1_2_method"
 })
 
 module.exports = transporter
